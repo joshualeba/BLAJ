@@ -1,45 +1,71 @@
-/* ======================================== */
-/* 1. VARIABLES Y MODO DÍA/NOCHE (THEMING) */
+﻿/* ======================================== */
+/* 1. VARIABLES Y MODO DÃA/NOCHE (THEMING) */
 /* ======================================== */
 :root {
     --bg-color-light: #f0f2f5;
-    --text-color-light: #000; /* texto oscuro para el modo claro */
-    --card-bg-light: rgba(255, 255, 255, 0.4); /* más transparente */
-    --border-color-light: rgba(0, 0, 0, 0.1); /* borde sutil oscuro */
-    --shadow-color-light: rgba(0, 0, 0, 0.15); /* sombra más pronunciada */
-    --navbar-bg-light: rgba(0, 0, 0, 0.3); /* siempre oscuro y semitransparente */
-    --navbar-text-light: #fff; /* texto blanco para el navbar oscuro */
-    --btn-primary-bg-light: #000; /* botón oscuro en modo claro */
-    --btn-primary-text-light: #fff; /* texto blanco para el botón oscuro */
+    --text-color-light: #000;
+    /* texto oscuro para el modo claro */
+    --card-bg-light: rgba(255, 255, 255, 0.4);
+    /* mÃ¡s transparente */
+    --border-color-light: rgba(0, 0, 0, 0.1);
+    /* borde sutil oscuro */
+    --shadow-color-light: rgba(0, 0, 0, 0.15);
+    /* sombra mÃ¡s pronunciada */
+    --navbar-bg-light: rgba(0, 0, 0, 0.3);
+    /* siempre oscuro y semitransparente */
+    --navbar-text-light: #fff;
+    /* texto blanco para el navbar oscuro */
+    --btn-primary-bg-light: #000;
+    /* botÃ³n oscuro en modo claro */
+    --btn-primary-text-light: #fff;
+    /* texto blanco para el botÃ³n oscuro */
     --footer-bg-light: #000;
     --footer-text-light: #fff;
-    --overlay-color-light: rgba(0, 0, 0, 0.3); /* más oscuro para resaltar video */
-    --mobile-menu-bg-light: #fff; /* fondo sólido para el menú móvil */
-    --loader-color-light: #000; /* color de la figura del loader en modo claro */
-    --loader-shadow-color-light: #00000050; /* color de la sombra del loader en modo claro */
+    --overlay-color-light: rgba(0, 0, 0, 0.3);
+    /* mÃ¡s oscuro para resaltar video */
+    --mobile-menu-bg-light: #fff;
+    /* fondo sÃ³lido para el menÃº mÃ³vil */
+    --loader-color-light: #000;
+    /* color de la figura del loader en modo claro */
+    --loader-shadow-color-light: #00000050;
+    /* color de la sombra del loader en modo claro */
     --grid-color-light: rgba(0, 0, 0, 0.05);
     --current-grid-color: var(--grid-color-light);
 
 
     /* modo noche - por defecto se aplica si no se detecta preferencia del sistema */
-    --bg-color-dark: #1a1a1a; /* casi negro */
-    --text-color-dark: #fff; /* texto blanco */
-    --card-bg-dark: rgba(26, 26, 26, 0.7); /* más transparente */
-    --border-color-dark: rgba(255, 255, 255, 0.2); /* más visible */
-    --shadow-color-dark: rgba(0, 0, 0, 0.5); /* sombra más pronunciada */
-    --navbar-bg-dark: rgba(0, 0, 0, 0.3); /* siempre oscuro y semitransparente */
-    --navbar-text-dark: #fff; /* texto blanco para el navbar oscuro */
-    --btn-primary-bg-dark: #fff; /* color más neutro */
-    --btn-primary-text-dark: #000; /* texto oscuro para el botón claro */
-    --footer-bg-dark: #000; /* negro total */
+    --bg-color-dark: #1a1a1a;
+    /* casi negro */
+    --text-color-dark: #fff;
+    /* texto blanco */
+    --card-bg-dark: rgba(26, 26, 26, 0.7);
+    /* mÃ¡s transparente */
+    --border-color-dark: rgba(255, 255, 255, 0.2);
+    /* mÃ¡s visible */
+    --shadow-color-dark: rgba(0, 0, 0, 0.5);
+    /* sombra mÃ¡s pronunciada */
+    --navbar-bg-dark: rgba(0, 0, 0, 0.3);
+    /* siempre oscuro y semitransparente */
+    --navbar-text-dark: #fff;
+    /* texto blanco para el navbar oscuro */
+    --btn-primary-bg-dark: #fff;
+    /* color mÃ¡s neutro */
+    --btn-primary-text-dark: #000;
+    /* texto oscuro para el botÃ³n claro */
+    --footer-bg-dark: #000;
+    /* negro total */
     --footer-text-dark: #bbb;
-    --overlay-color-dark: rgba(0, 0, 0, 0.3); /* más oscuro para resaltar video */
-    --mobile-menu-bg-dark: #1a1a1a; /* fondo sólido para el menú móvil */
-    --loader-color-dark: #fff; /* color de la figura del loader en modo oscuro */
-    --loader-shadow-color-dark: #ffffff50; /* color de la sombra del loader en modo oscuro */
+    --overlay-color-dark: rgba(0, 0, 0, 0.3);
+    /* mÃ¡s oscuro para resaltar video */
+    --mobile-menu-bg-dark: #1a1a1a;
+    /* fondo sÃ³lido para el menÃº mÃ³vil */
+    --loader-color-dark: #fff;
+    /* color de la figura del loader en modo oscuro */
+    --loader-shadow-color-dark: #ffffff50;
+    /* color de la sombra del loader en modo oscuro */
 
 
-    /* variables activas, cambiarán con el modo */
+    /* variables activas, cambiarÃ¡n con el modo */
     --current-bg-color: var(--bg-color-light);
     --current-text-color: var(--text-color-light);
     --current-card-bg: var(--card-bg-light);
@@ -102,19 +128,26 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--current-text-color);
     margin-bottom: 1rem;
 }
 
 a {
-    color: var(--current-btn-primary-bg); /* color base del botón */
+    color: var(--current-btn-primary-bg);
+    /* color base del botÃ³n */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--current-btn-primary-text); /* color de texto del botón en hover */
+    color: var(--current-btn-primary-text);
+    /* color de texto del botÃ³n en hover */
 }
 
 .section-padding {
@@ -129,8 +162,10 @@ a:hover {
     display: inline-block;
     padding-bottom: 10px;
     color: var(--current-text-color);
-    width: 100%; /* para centrar el after */
-    text-align: center; /* centrar el título */
+    width: 100%;
+    /* para centrar el after */
+    text-align: center;
+    /* centrar el tÃ­tulo */
 }
 
 .section-title::after {
@@ -139,7 +174,8 @@ a:hover {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 120px; /* línea más larga */
+    width: 120px;
+    /* lÃ­nea mÃ¡s larga */
     height: 4px;
     background-color: var(--current-btn-primary-bg);
     border-radius: 2px;
@@ -151,7 +187,7 @@ a:hover {
 }
 
 /* ======================================== */
-/* 3. LOADER DE PÁGINA */
+/* 3. LOADER DE PÃGINA */
 /* ======================================== */
 .page-loader {
     position: fixed;
@@ -159,7 +195,8 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--current-bg-color); /* Fondo oscuro */
+    background-color: var(--current-bg-color);
+    /* Fondo oscuro */
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -173,69 +210,69 @@ a:hover {
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  position: relative;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    position: relative;
 }
 
 .loader:before {
-  content: '';
-  width: 48px;
-  height: 5px;
-  background: var(--current-loader-shadow-color);
-  position: absolute;
-  top: 60px;
-  left: 0;
-  border-radius: 50%;
-  animation: shadow324 0.5s linear infinite;
+    content: '';
+    width: 48px;
+    height: 5px;
+    background: var(--current-loader-shadow-color);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow324 0.5s linear infinite;
 }
 
 .loader:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: var(--current-loader-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 4px;
-  animation: jump7456 0.5s linear infinite;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: var(--current-loader-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    animation: jump7456 0.5s linear infinite;
 }
 
 @keyframes jump7456 {
-  15% {
-    border-bottom-right-radius: 3px;
-  }
+    15% {
+        border-bottom-right-radius: 3px;
+    }
 
-  25% {
-    transform: translateY(9px) rotate(22.5deg);
-  }
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
 
-  50% {
-    transform: translateY(18px) scale(1, .9) rotate(45deg);
-    border-bottom-right-radius: 40px;
-  }
+    50% {
+        transform: translateY(18px) scale(1, .9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
 
-  75% {
-    transform: translateY(9px) rotate(67.5deg);
-  }
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
 
-  100% {
-    transform: translateY(0) rotate(90deg);
-  }
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
 }
 
 @keyframes shadow324 {
 
-  0%,
+    0%,
     100% {
-    transform: scale(1, 1);
-  }
+        transform: scale(1, 1);
+    }
 
-  50% {
-    transform: scale(1.2, 1);
-  }
+    50% {
+        transform: scale(1.2, 1);
+    }
 }
 
 /* ======================================== */
@@ -258,32 +295,38 @@ a:hover {
     position: absolute;
     width: 8px;
     height: 8px;
-    background-color: #fff; /* color blanco sólido */
+    background-color: #fff;
+    /* color blanco sÃ³lido */
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: top 0.05s ease-out, left 0.05s ease-out; /* movimiento rápido */
+    transition: top 0.05s ease-out, left 0.05s ease-out;
+    /* movimiento rÃ¡pido */
 }
 
 .custom-cursor-follower {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: transparent; /* sin fondo */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* borde blanco */
+    background-color: transparent;
+    /* sin fondo */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* borde blanco */
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: top 0.15s ease-out, left 0.15s ease-out; /* movimiento más suave */
+    transition: top 0.15s ease-out, left 0.15s ease-out;
+    /* movimiento mÃ¡s suave */
 }
 
 /* ======================================== */
-/* 5. NAVBAR (BARRA DE NAVEGACIÓN) */
+/* 5. NAVBAR (BARRA DE NAVEGACIÃ“N) */
 /* ======================================== */
 .navbar-custom {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    background: transparent; /* el color de fondo lo dará container-nav */
+    background: transparent;
+    /* el color de fondo lo darÃ¡ container-nav */
     z-index: 1000;
     transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -294,21 +337,30 @@ a:hover {
     align-items: center;
     padding: 15px 25px;
     max-width: 1200px;
-    margin: 15px auto; /* margen para efecto flotante */
-    background: rgba(0, 0, 0, 0.3); /* color de fondo fijo */
-    backdrop-filter: blur(12px); /* más blur */
-    -webkit-backdrop-filter: blur(12px); /* más blur */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* borde blanco semitransparente */
-    border-radius: 50px; /* bordes redondeados */
+    margin: 15px auto;
+    /* margen para efecto flotante */
+    background: rgba(0, 0, 0, 0.3);
+    /* color de fondo fijo */
+    backdrop-filter: blur(12px);
+    /* mÃ¡s blur */
+    -webkit-backdrop-filter: blur(12px);
+    /* mÃ¡s blur */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* borde blanco semitransparente */
+    border-radius: 50px;
+    /* bordes redondeados */
     box-shadow: 0 4px 10px var(--current-shadow-color);
-    transition: all 0.3s ease; /* transición para todos los cambios */
+    transition: all 0.3s ease;
+    /* transiciÃ³n para todos los cambios */
     margin: 15px auto;
 }
 
 .navbar-custom .navbar-actions {
-    display: flex; /* siempre visible */
+    display: flex;
+    /* siempre visible */
     align-items: center;
-    gap: 15px; /* espacio entre el botón de tema y el menú toggle */
+    gap: 15px;
+    /* espacio entre el botÃ³n de tema y el menÃº toggle */
 }
 
 .brand-logo {
@@ -321,7 +373,8 @@ a:hover {
 }
 
 .brand-logo:hover {
-    color: var(--current-btn-primary-bg); /* color principal al pasar el ratón */
+    color: var(--current-btn-primary-bg);
+    /* color principal al pasar el ratÃ³n */
 }
 
 .nav-links {
@@ -364,9 +417,10 @@ a:hover {
     color: var(--current-btn-primary-bg);
 }
 
-/* Botón "Contáctanos" del Navbar */
+/* BotÃ³n "ContÃ¡ctanos" del Navbar */
 .btn-navbar-contact {
-    padding: 8px 20px !important; /* !important para sobreescribir el padding de .nav-links a */
+    padding: 8px 20px !important;
+    /* !important para sobreescribir el padding de .nav-links a */
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -378,113 +432,119 @@ a:hover {
 .btn-navbar-contact:hover {
     background: rgba(255, 255, 255, 0.3) !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
-    color: #fff !important; /* asegurar que el texto se mantenga blanco */
+    color: #fff !important;
+    /* asegurar que el texto se mantenga blanco */
 }
 
-/* asegurar que el efecto ::after no aparezca en el botón */
+/* asegurar que el efecto ::after no aparezca en el botÃ³n */
 .btn-navbar-contact::after {
     display: none !important;
 }
 
 /* Switch de Tema */
 .ui-switch {
-  --switch-bg: rgb(135, 150, 165);
-  --switch-width: 48px;
-  --switch-height: 20px;
-  --circle-diameter: 32px;
-  --circle-bg: rgb(0, 56, 146);
-  --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 20px;
+    --circle-diameter: 32px;
+    --circle-bg: rgb(0, 56, 146);
+    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
 }
 
 .ui-switch input {
-  display: none;
+    display: none;
 }
 
 .slider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: var(--switch-width);
-  height: var(--switch-height);
-  background: var(--switch-bg);
-  border-radius: 999px;
-  position: relative;
-  cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
 }
 
 .slider .circle {
-  top: calc(var(--circle-inset) * -1);
-  left: 0;
-  width: var(--circle-diameter);
-  height: var(--circle-diameter);
-  position: absolute;
-  background: var(--circle-bg);
-  border-radius: inherit;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  ;
+    top: calc(var(--circle-inset) * -1);
+    left: 0;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    position: absolute;
+    background: var(--circle-bg);
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    ;
 }
 
 .slider .circle::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: inherit;
-  -webkit-transition: all 500ms;
-  -o-transition: all 500ms;
-  transition: all 500ms;
-  opacity: 0;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: inherit;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    opacity: 0;
 }
 
 .ui-switch input:checked+.slider .circle {
-  left: calc(100% - var(--circle-diameter));
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
+    left: calc(100% - var(--circle-diameter));
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
 }
 
 .ui-switch input:active+.slider .circle::before {
-  -webkit-transition: 0s;
-  -o-transition: 0s;
-  transition: 0s;
-  opacity: 1;
-  width: 0;
-  height: 0;
+    -webkit-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s;
+    opacity: 1;
+    width: 0;
+    height: 0;
 }
 
-/* Menú Hamburguesa (Móvil) */
+/* MenÃº Hamburguesa (MÃ³vil) */
 .menu-toggle {
-    display: none; /* ocultar por defecto en desktop */
+    display: none;
+    /* ocultar por defecto en desktop */
     flex-direction: column;
     cursor: pointer;
     padding: 5px;
     background: transparent;
     border: none;
-    width: 40px; /* aumentar el tamaño para que no se corte */
-    height: 30px; /* ajustar altura */
+    width: 40px;
+    /* aumentar el tamaÃ±o para que no se corte */
+    height: 30px;
+    /* ajustar altura */
     justify-content: space-around;
     align-items: center;
 }
 
 .menu-toggle .bar {
-    width: 100%; /* ocupa todo el ancho del toggle */
+    width: 100%;
+    /* ocupa todo el ancho del toggle */
     height: 3px;
     background-color: var(--current-navbar-text);
-    margin: 0; /* resetear margin */
+    margin: 0;
+    /* resetear margin */
     transition: all 0.3s ease-in-out;
 }
 
@@ -492,37 +552,51 @@ a:hover {
 @media (max-width: 992px) {
     .navbar-custom .container-nav {
         justify-content: space-between;
-        border-radius: 0; /* eliminar borde redondeado en móvil */
-        margin: 0; /* Elimina el margen lateral del efecto flotante */
-        max-width: 100%; /* Asegura que el ancho no esté limitado */
-        width: 100%; /* Fuerza el ancho al 100% */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* restaurar border-bottom blanco */
-        border-top: none; /* asegurar que no haya border top */
-        border-left: none; /* asegurar que no haya border left */
-        border-right: none; /* asegurar que no haya border right */
+        border-radius: 0;
+        /* eliminar borde redondeado en mÃ³vil */
+        margin: 0;
+        /* Elimina el margen lateral del efecto flotante */
+        max-width: 100%;
+        /* Asegura que el ancho no estÃ© limitado */
+        width: 100%;
+        /* Fuerza el ancho al 100% */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        /* restaurar border-bottom blanco */
+        border-top: none;
+        /* asegurar que no haya border top */
+        border-left: none;
+        /* asegurar que no haya border left */
+        border-right: none;
+        /* asegurar que no haya border right */
     }
 
     .btn-navbar-contact {
-        display: inline-block; /* quitar el display: block; de .nav-links a */
-        width: auto; /* ancho automático */
-        padding: 10px 30px !important; /* padding normal de botón */
+        display: inline-block;
+        /* quitar el display: block; de .nav-links a */
+        width: auto;
+        /* ancho automÃ¡tico */
+        padding: 10px 30px !important;
+        /* padding normal de botÃ³n */
     }
 
     .menu-toggle {
-        display: flex; /* mostrar el menú toggle en móvil */
+        display: flex;
+        /* mostrar el menÃº toggle en mÃ³vil */
     }
 
     .nav-links {
         display: none;
         flex-direction: column;
-        justify-content: center; /* centrar verticalmente */
+        justify-content: center;
+        /* centrar verticalmente */
         width: 100%;
         position: fixed;
         top: 65px;
         left: 0;
         height: calc(100vh - 65px);
         background: var(--current-mobile-menu-bg);
-        padding: 0; /* quitar padding vertical */
+        padding: 0;
+        /* quitar padding vertical */
         border-top: 1px solid var(--current-border-color);
         box-shadow: 0 4px 10px var(--current-shadow-color);
         animation: slideDown 0.3s ease-out forwards;
@@ -559,8 +633,15 @@ a:hover {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .nav-links a.active {
@@ -578,7 +659,7 @@ a:hover {
 }
 
 /* ======================================== */
-/* 6. HERO SECTION (SECCIÓN PRINCIPAL) */
+/* 6. HERO SECTION (SECCIÃ“N PRINCIPAL) */
 /* ======================================== */
 .hero-section {
     position: relative;
@@ -629,21 +710,23 @@ a:hover {
 }
 
 .typed-text {
-    font-size: 3.5rem; /* asegura que el texto de typed.js tenga el mismo tamaño */
+    font-size: 3.5rem;
+    /* asegura que el texto de typed.js tenga el mismo tamaÃ±o */
     font-weight: 700;
     color: #fff;
 }
 
 .typed-cursor {
     color: #0084FF;
-    font-size: 3rem; 
-    font-weight: 300; 
+    font-size: 3rem;
+    font-weight: 300;
 }
 
 /* Flechas de Scroll Down */
 .scroll-down-link {
     position: absolute;
-    bottom: 90px; /* <-- más arriba (antes 60px) */
+    bottom: 90px;
+    /* <-- mÃ¡s arriba (antes 60px) */
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -667,9 +750,11 @@ a:hover {
 .scroll-down-arrows span:nth-child(1) {
     animation-delay: 0.1s;
 }
+
 .scroll-down-arrows span:nth-child(2) {
     animation-delay: 0.2s;
 }
+
 .scroll-down-arrows span:nth-child(3) {
     animation-delay: 0.3s;
 }
@@ -677,14 +762,18 @@ a:hover {
 @keyframes scroll-animation {
     0% {
         opacity: 0;
-        transform: rotate(45deg) translate(-25px, -25px); /* <-- ajustado al nuevo tamaño */
+        transform: rotate(45deg) translate(-25px, -25px);
+        /* <-- ajustado al nuevo tamaÃ±o */
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
-        transform: rotate(45deg) translate(25px, 25px); /* <-- ajustado al nuevo tamaño */
+        transform: rotate(45deg) translate(25px, 25px);
+        /* <-- ajustado al nuevo tamaÃ±o */
     }
 }
 
@@ -692,11 +781,12 @@ a:hover {
 /* 7. COMPONENTES REUTILIZABLES (BOTONES, TARJETAS) */
 /* ======================================== */
 
-/* Botón Primario (Efecto Slide) */
+/* BotÃ³n Primario (Efecto Slide) */
 .btn-primary-custom {
     display: inline-block;
     padding: 12px 30px;
-    background: rgba(255, 255, 255, 0.2); /* fondo cristalino */
+    background: rgba(255, 255, 255, 0.2);
+    /* fondo cristalino */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #fff;
@@ -706,8 +796,10 @@ a:hover {
     font-weight: 600;
     text-transform: uppercase;
     box-shadow: 0 5px 15px var(--current-shadow-color);
-    position: relative; /* para el pseudo-elemento */
-    overflow: hidden; /* para el pseudo-elemento */
+    position: relative;
+    /* para el pseudo-elemento */
+    overflow: hidden;
+    /* para el pseudo-elemento */
     z-index: 1;
     transition: color 0.4s ease, border-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -716,57 +808,73 @@ a:hover {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; /* inicia afuera a la izquierda */
+    left: -100%;
+    /* inicia afuera a la izquierda */
     width: 100%;
     height: 100%;
-    background: #fff; /* fondo blanco que se desliza */
+    background: #fff;
+    /* fondo blanco que se desliza */
     z-index: -1;
     transition: left 0.4s ease;
 }
 
 .btn-primary-custom span {
     position: relative;
-    z-index: 2; /* asegura que el texto esté sobre el ::before */
+    z-index: 2;
+    /* asegura que el texto estÃ© sobre el ::before */
 }
 
 .btn-primary-custom:hover {
-    color: #000; /* texto cambia a negro */
-    border-color: #fff; /* borde cambia a blanco sólido */
+    color: #000;
+    /* texto cambia a negro */
+    border-color: #fff;
+    /* borde cambia a blanco sÃ³lido */
     transform: translateY(-3px);
     box-shadow: 0 8px 20px var(--current-shadow-color);
 }
 
 .btn-primary-custom:hover::before {
-    left: 0; /* fondo se desliza al centro */
+    left: 0;
+    /* fondo se desliza al centro */
 }
 
-/* Botón Primario en Modo Noche */
+/* BotÃ³n Primario en Modo Noche */
 body.dark-mode .btn-primary-custom {
-    background: rgba(255, 255, 255, 0.15); /* Fondo más oscuro y sutil en modo noche */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde más visible en oscuro */
-    color: #fff; /* Texto blanco por defecto (Visitar sitio) */
+    background: rgba(255, 255, 255, 0.15);
+    /* Fondo mÃ¡s oscuro y sutil en modo noche */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borde mÃ¡s visible en oscuro */
+    color: #fff;
+    /* Texto blanco por defecto (Visitar sitio) */
 }
 
 body.dark-mode .btn-primary-custom:hover {
-    color: #000 !important; /* El texto se vuelve NEGRO */
-    border-color: #fff; /* El borde se mantiene blanco sólido */
+    color: #000 !important;
+    /* El texto se vuelve NEGRO */
+    border-color: #fff;
+    /* El borde se mantiene blanco sÃ³lido */
 }
 
 /* Tarjetas Glassmorphism */
 .glassmorphism-card {
     background: var(--current-card-bg);
-    backdrop-filter: blur(15px); /* más blur */
-    -webkit-backdrop-filter: blur(15px); /* más blur */
+    backdrop-filter: blur(15px);
+    /* mÃ¡s blur */
+    -webkit-backdrop-filter: blur(15px);
+    /* mÃ¡s blur */
     border: 1px solid var(--current-border-color);
     border-radius: 15px;
     box-shadow: 0 8px 32px 0 var(--current-shadow-color);
     padding: 30px;
-    margin-bottom: 30px; /* para separar las tarjetas */
-    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease; /* añadir transform a la transición */
+    margin-bottom: 30px;
+    /* para separar las tarjetas */
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease;
+    /* aÃ±adir transform a la transiciÃ³n */
 }
 
 .glassmorphism-card:hover {
-    transform: translateY(-5px); /* efecto hover para tarjetas */
+    transform: translateY(-5px);
+    /* efecto hover para tarjetas */
 }
 
 /* ======================================== */
@@ -786,7 +894,7 @@ body.dark-mode .btn-primary-custom:hover {
     background-size: 40px 40px;
 }
 
-/* -- Sección: Servicios (Services) -- */
+/* -- SecciÃ³n: Servicios (Services) -- */
 .servicesSwiper .swiper-slide {
     background-position: center;
     background-size: cover;
@@ -796,23 +904,27 @@ body.dark-mode .btn-primary-custom:hover {
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* alinea todo al inicio */
+    justify-content: flex-start;
+    /* alinea todo al inicio */
     padding: 30px;
 }
 
 .icon-service {
-    font-size: 3.5rem; /* tamaño del icono */
-    color: var(--primary-color); /* color del logo */
+    font-size: 3.5rem;
+    /* tamaÃ±o del icono */
+    color: var(--primary-color);
+    /* color del logo */
     text-align: center;
     width: 100%;
 }
 
 .highlight-text {
-    color: #0084FF; /* azul del logo */
+    color: #0084FF;
+    /* azul del logo */
     font-weight: 700;
 }
 
-/* -- Sección: Por qué BLAJ (Why Blaj) -- */
+/* -- SecciÃ³n: Por quÃ© BLAJ (Why Blaj) -- */
 .why-blaj-list {
     list-style: none;
     padding: 0;
@@ -821,8 +933,9 @@ body.dark-mode .btn-primary-custom:hover {
 
 .why-blaj-item {
     display: flex;
-    align-items: flex-start; /* alinea el icono arriba */
-    padding: 20px; 
+    align-items: flex-start;
+    /* alinea el icono arriba */
+    padding: 20px;
     margin-bottom: 20px;
 }
 
@@ -831,8 +944,10 @@ body.dark-mode .btn-primary-custom:hover {
 }
 
 .icon-feature {
-    font-size: 2.5rem; /* tamaño del icono */
-    color: #0084FF; /* tu color de 'highlight-text' */
+    font-size: 2.5rem;
+    /* tamaÃ±o del icono */
+    color: #0084FF;
+    /* tu color de 'highlight-text' */
     margin-right: 20px;
     min-width: 40px;
     text-align: center;
@@ -840,7 +955,8 @@ body.dark-mode .btn-primary-custom:hover {
 
 .why-blaj-content h3 {
     font-size: 1.4rem;
-    margin-top: 0; /* para alinear con el icono */
+    margin-top: 0;
+    /* para alinear con el icono */
     margin-bottom: 8px;
     color: var(--current-text-color);
 }
@@ -854,10 +970,12 @@ body.dark-mode .btn-primary-custom:hover {
 
 /* Cubo 3D */
 .cube-container {
-    width: 300px; /* tamaño del cubo */
+    width: 300px;
+    /* tamaÃ±o del cubo */
     height: 300px;
-    perspective: 1000px; /* perspectiva 3d */
-    display: flex; 
+    perspective: 1000px;
+    /* perspectiva 3d */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -866,8 +984,10 @@ body.dark-mode .btn-primary-custom:hover {
     width: 100%;
     height: 100%;
     position: relative;
-    transform-style: preserve-3d; /* esencial para el 3d */
-    animation: rotateCube 15s infinite linear; /* animación de rotación */
+    transform-style: preserve-3d;
+    /* esencial para el 3d */
+    animation: rotateCube 15s infinite linear;
+    /* animaciÃ³n de rotaciÃ³n */
 }
 
 .cube-container:hover .cube {
@@ -878,38 +998,58 @@ body.dark-mode .btn-primary-custom:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: var(--current-card-bg); /* adaptado a blaj */
-    border: 1px solid var(--current-border-color); /* adaptado a blaj */
-    box-shadow: 0 0 15px var(--current-shadow-color); /* adaptado a blaj */
+    background-color: var(--current-card-bg);
+    /* adaptado a blaj */
+    border: 1px solid var(--current-border-color);
+    /* adaptado a blaj */
+    box-shadow: 0 0 15px var(--current-shadow-color);
+    /* adaptado a blaj */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; 
-    border-radius: 10px; /* estilo de blaj */
+    overflow: hidden;
+    border-radius: 10px;
+    /* estilo de blaj */
 }
 
 .cube-face img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    display: block; 
+    object-fit: cover;
+    display: block;
     border-radius: 10px;
 }
 
-.cube-face.front  { transform: rotateY(  0deg) translateZ(150px); }
-.cube-face.right  { transform: rotateY( 90deg) translateZ(150px); }
-.cube-face.back   { transform: rotateY(180deg) translateZ(150px); }
-.cube-face.left   { transform: rotateY(-90deg) translateZ(150px); }
-
-@keyframes rotateCube {
-    0%   { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
+.cube-face.front {
+    transform: rotateY(0deg) translateZ(150px);
 }
 
-/* -- Sección: Frase (Quote Banner) -- */
+.cube-face.right {
+    transform: rotateY(90deg) translateZ(150px);
+}
+
+.cube-face.back {
+    transform: rotateY(180deg) translateZ(150px);
+}
+
+.cube-face.left {
+    transform: rotateY(-90deg) translateZ(150px);
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* -- SecciÃ³n: Frase (Quote Banner) -- */
 .quote-banner {
     padding: 80px 0;
-    background-color: #0d0d0d; 
+    background-color: #0d0d0d;
     border-top: 1px solid var(--current-border-color);
     border-bottom: 1px solid var(--current-border-color);
 }
@@ -923,7 +1063,8 @@ body.dark-mode .btn-primary-custom:hover {
 .quote-banner .quote-text {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #fff; /* texto siempre blanco para esta sección */
+    color: #fff;
+    /* texto siempre blanco para esta secciÃ³n */
     line-height: 1.4;
     margin-bottom: 20px;
 }
@@ -931,10 +1072,11 @@ body.dark-mode .btn-primary-custom:hover {
 .quote-banner .quote-author {
     font-size: 1.2rem;
     font-style: italic;
-    color: #ccc; /* color más sutil para el autor */
+    color: #ccc;
+    /* color mÃ¡s sutil para el autor */
 }
 
-/* -- Sección: Portafolio (Portfolio) -- */
+/* -- SecciÃ³n: Portafolio (Portfolio) -- */
 .portfolio-item img {
     width: 100%;
     height: 400px;
@@ -988,7 +1130,8 @@ body.dark-mode .btn-primary-custom:hover {
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     width: 50%;
-    margin: 0 auto; /* centrar el botón */
+    margin: 0 auto;
+    /* centrar el botÃ³n */
 }
 
 .view-project-link span {
@@ -1011,15 +1154,19 @@ body.dark-mode .btn-primary-custom:hover {
     0% {
         transform: rotate(0deg) translate3d(0, 0, 0);
     }
+
     25% {
         transform: rotate(3deg) translate3d(0, 0, 0);
     }
+
     50% {
         transform: rotate(-3deg) translate3d(0, 0, 0);
     }
+
     75% {
         transform: rotate(1deg) translate3d(0, 0, 0);
     }
+
     100% {
         transform: rotate(0deg) translate3d(0, 0, 0);
     }
@@ -1029,15 +1176,19 @@ body.dark-mode .btn-primary-custom:hover {
     0% {
         transform: translate3d(0, 0, 0) translateZ(0);
     }
+
     25% {
         transform: translate3d(4px, 0, 0) translateZ(0);
     }
+
     50% {
         transform: translate3d(-3px, 0, 0) translateZ(0);
     }
+
     75% {
         transform: translate3d(2px, 0, 0) translateZ(0);
     }
+
     100% {
         transform: translate3d(0, 0, 0) translateZ(0);
     }
@@ -1072,7 +1223,7 @@ body.dark-mode .btn-primary-custom:hover {
     transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* -- Sección: Testimonios (Testimonials) -- */
+/* -- SecciÃ³n: Testimonios (Testimonials) -- */
 .testimonial-card {
     text-align: center;
     padding: 40px 20px;
@@ -1117,11 +1268,13 @@ body.dark-mode .btn-primary-custom:hover {
     font-size: 1.1rem;
 }
 
-/* -- Sección: Contacto (Contact Form) -- */
+/* -- SecciÃ³n: Contacto (Contact Form) -- */
 .contact-form .form-control {
     background: var(--current-card-bg);
-    backdrop-filter: blur(10px); /* más blur */
-    -webkit-backdrop-filter: blur(10px); /* más blur */
+    backdrop-filter: blur(10px);
+    /* mÃ¡s blur */
+    -webkit-backdrop-filter: blur(10px);
+    /* mÃ¡s blur */
     border: 1px solid var(--current-border-color);
     color: var(--current-text-color);
     padding: 10px 15px;
@@ -1130,7 +1283,8 @@ body.dark-mode .btn-primary-custom:hover {
 }
 
 .contact-form .form-control:hover {
-    transform: translateY(-3px); /* efecto hover ligero */
+    transform: translateY(-3px);
+    /* efecto hover ligero */
 }
 
 .contact-form .form-control::placeholder {
@@ -1141,7 +1295,8 @@ body.dark-mode .btn-primary-custom:hover {
 .contact-form .form-control:focus {
     background: var(--current-card-bg);
     border-color: var(--current-btn-primary-bg);
-    box-shadow: 0 0 0 0.25rem rgba(142, 45, 226, 0.25); /* sombra de foco con color primario */
+    box-shadow: 0 0 0 0.25rem rgba(142, 45, 226, 0.25);
+    /* sombra de foco con color primario */
     color: var(--current-text-color);
     outline: none;
 }
@@ -1152,34 +1307,40 @@ body.dark-mode .btn-primary-custom:hover {
     display: block;
 }
 
-/* Especificidad para el botón de formulario en modo día */
+/* Especificidad para el botÃ³n de formulario en modo dÃ­a */
 body:not(.dark-mode) .contact-form .btn-primary-custom {
     color: #000;
 }
 
 .error-message {
-    color: #ff5252; /* rojo vibrante para errores */
+    color: #ff5252;
+    /* rojo vibrante para errores */
     font-size: 0.85rem;
     margin-top: 5px;
-    display: block; /* asegura que cada mensaje de error esté en su propia línea */
-    height: 1.2em; /* espacio reservado para evitar saltos de diseño */
+    display: block;
+    /* asegura que cada mensaje de error estÃ© en su propia lÃ­nea */
+    height: 1.2em;
+    /* espacio reservado para evitar saltos de diseÃ±o */
 }
 
 .form-control.is-invalid {
-    border-color: #ff5252; /* borde rojo para campos inválidos */
+    border-color: #ff5252;
+    /* borde rojo para campos invÃ¡lidos */
     box-shadow: 0 0 0 0.25rem rgba(255, 82, 82, 0.25);
 }
 
-/* -- Estilos para la nueva Metodología (Process Flow) -- */
+/* -- Estilos para la nueva MetodologÃ­a (Process Flow) -- */
 .process-flow-container {
     position: relative;
-    padding-left: 25px; /* espacio para los números */
+    padding-left: 25px;
+    /* espacio para los nÃºmeros */
 }
 
 .process-step {
     display: flex;
     position: relative;
-    margin-bottom: 20px; /* espacio entre pasos */
+    margin-bottom: 20px;
+    /* espacio entre pasos */
     align-items: flex-start;
 }
 
@@ -1188,16 +1349,19 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    left: -25px; /* alinear a la izquierda del padding */
+    left: -25px;
+    /* alinear a la izquierda del padding */
     top: 0;
     z-index: 2;
-    height: 100%; /* para que la línea se estire */
+    height: 100%;
+    /* para que la lÃ­nea se estire */
 }
 
 .step-number {
     width: 50px;
     height: 50px;
-    background: #0084FF; /* color azul de BLAJ */
+    background: #0084FF;
+    /* color azul de BLAJ */
     color: #fff;
     font-weight: 700;
     font-size: 1.5rem;
@@ -1205,23 +1369,28 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid var(--current-bg-color); /* crea separación del fondo */
+    border: 4px solid var(--current-bg-color);
+    /* crea separaciÃ³n del fondo */
     box-shadow: 0 4px 10px var(--current-shadow-color);
-    flex-shrink: 0; /* para que no se encoja */
+    flex-shrink: 0;
+    /* para que no se encoja */
 }
 
 .step-line {
     width: 3px;
     background: var(--current-border-color);
-    flex-grow: 1; /* para que llene el espacio */
+    flex-grow: 1;
+    /* para que llene el espacio */
 }
 
 /* el contenido del paso ahora es la tarjeta */
 .step-content.glassmorphism-card {
     padding: 20px;
-    margin-left: 45px; /* espacio desde el número */
+    margin-left: 45px;
+    /* espacio desde el nÃºmero */
     width: 100%;
-    margin-bottom: 0; /* glassmorphism-card tiene margin-bottom, lo reseteamos */
+    margin-bottom: 0;
+    /* glassmorphism-card tiene margin-bottom, lo reseteamos */
 }
 
 .step-content h3 {
@@ -1236,21 +1405,27 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     opacity: 0.9;
 }
 
-/* Media query para ajustar el padding en móvil */
+/* Media query para ajustar el padding en mÃ³vil */
 @media (max-width: 991px) {
     .process-flow-container {
-        padding-left: 20px; /* menos padding */
+        padding-left: 20px;
+        /* menos padding */
     }
+
     .step-number-container {
-        left: -20px; /* ajustar posición */
+        left: -20px;
+        /* ajustar posiciÃ³n */
     }
+
     .step-number {
         width: 45px;
         height: 45px;
         font-size: 1.3rem;
     }
+
     .step-content.glassmorphism-card {
-        margin-left: 35px; /* menos margen */
+        margin-left: 35px;
+        /* menos margen */
     }
 }
 
@@ -1260,7 +1435,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     align-items: center;
     gap: 10px;
     padding-bottom: 5px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .contact-form .form-check-input {
@@ -1274,13 +1449,15 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .contact-form .form-check-input:checked {
-    background-color: #0084FF; /* color de tu marca */
+    background-color: #0084FF;
+    /* color de tu marca */
     border-color: #0084FF;
 }
 
 .contact-form .form-check-input:focus {
-     box-shadow: 0 0 0 0.25rem rgba(0, 132, 255, 0.25); /* sombra de foco */
-     outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(0, 132, 255, 0.25);
+    /* sombra de foco */
+    outline: none;
 }
 
 .contact-form .form-check-label {
@@ -1292,7 +1469,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 
 /* este enlace abre el modal */
 .contact-form .form-check-label a {
-    color: #0084FF; 
+    color: #0084FF;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -1302,12 +1479,13 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .contact-form .form-check-input.is-invalid {
-     border-color: #ff5252;
+    border-color: #ff5252;
 }
 
 .contact-form .form-check-container .error-message {
     width: 100%;
-    padding-left: 2.2em; /* (ancho del checkbox + gap) */
+    padding-left: 2.2em;
+    /* (ancho del checkbox + gap) */
 }
 
 /* ======================================== */
@@ -1316,14 +1494,16 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 .swiper {
     width: 100%;
     height: auto;
-    padding-bottom: 50px; /* espacio para la paginación */
+    padding-bottom: 50px;
+    /* espacio para la paginaciÃ³n */
 }
 
 .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--current-card-bg); /* fondo de glassmorphism para los slides */
+    background: var(--current-card-bg);
+    /* fondo de glassmorphism para los slides */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--current-border-color);
@@ -1332,17 +1512,20 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     overflow: hidden;
     flex-direction: column;
     text-align: center;
-    padding-bottom: 20px; /* espacio para la info */
-    transition: transform 0.3s ease; /* para el efecto hover */
+    padding-bottom: 20px;
+    /* espacio para la info */
+    transition: transform 0.3s ease;
+    /* para el efecto hover */
 }
 
 .swiper-slide:hover {
-    transform: translateY(-5px); /* efecto hover para slides */
+    transform: translateY(-5px);
+    /* efecto hover para slides */
 }
 
 .swiper-container-wrapper {
     position: relative;
-    padding: 0 15px; 
+    padding: 0 15px;
 }
 
 .swiper-button-next,
@@ -1381,8 +1564,8 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     border-radius: 50%;
     padding: 0;
     transition: all 0.3s ease;
-    position: absolute; 
-    top: 50%; 
+    position: absolute;
+    top: 50%;
     transform: translateY(-50%);
     z-index: 10;
 }
@@ -1393,17 +1576,20 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .testimonials-swiper-next {
-    right: 15px; /* ajustado para estar dentro del wrapper */
+    right: 15px;
+    /* ajustado para estar dentro del wrapper */
 }
 
 .testimonials-swiper-prev {
-    left: 15px; /* ajustado para estar dentro del wrapper */
+    left: 15px;
+    /* ajustado para estar dentro del wrapper */
 }
 
 /* Flechas de Swiper en Desktop */
 @media (min-width: 992px) {
     .swiper-container-wrapper {
-        padding: 0 45px; /* espacio lateral para las flechas */
+        padding: 0 45px;
+        /* espacio lateral para las flechas */
     }
 
     .services-swiper-next,
@@ -1417,6 +1603,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
         padding: 0;
         border-radius: 50%;
     }
+
     .services-swiper-next:after,
     .services-swiper-prev:after,
     .portfolio-swiper-next:after,
@@ -1425,8 +1612,18 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     .testimonials-swiper-prev:after {
         font-size: 1.6rem !important;
     }
-    .services-swiper-next, .portfolio-swiper-next, .testimonials-swiper-next { right: -15px; }
-    .services-swiper-prev, .portfolio-swiper-prev, .testimonials-swiper-prev { left: -15px; }
+
+    .services-swiper-next,
+    .portfolio-swiper-next,
+    .testimonials-swiper-next {
+        right: -15px;
+    }
+
+    .services-swiper-prev,
+    .portfolio-swiper-prev,
+    .testimonials-swiper-prev {
+        left: -15px;
+    }
 }
 
 /* ======================================== */
@@ -1437,7 +1634,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     border: 1px solid var(--current-border-color);
     box-shadow: 0 10px 40px var(--current-shadow-color);
     padding: 20px;
-    border-radius: 15px; 
+    border-radius: 15px;
 }
 
 .modal-title {
@@ -1457,7 +1654,8 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 
 .check-icon {
     font-size: 4rem;
-    color: #28a745; /* verde para el check de éxito */
+    color: #28a745;
+    /* verde para el check de Ã©xito */
     margin-top: 20px;
 }
 
@@ -1467,8 +1665,10 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .modal-backdrop.fade.show {
-    background-color: rgba(0, 0, 0, 0.5); /* más oscuro */
-    backdrop-filter: blur(8px); /* más desenfoque */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* mÃ¡s oscuro */
+    backdrop-filter: blur(8px);
+    /* mÃ¡s desenfoque */
     -webkit-backdrop-filter: blur(8px);
 }
 
@@ -1478,7 +1678,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 
 #page-wrapper.blurred {
     filter: blur(10px);
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 body:not(.dark-mode) .modal .btn-primary-custom {
@@ -1489,7 +1689,7 @@ body:not(.dark-mode) .modal .btn-primary-custom {
 #modalProyecto2 .modal-body .img-fluid,
 #modalProyecto3 .modal-body .img-fluid,
 #modalProyecto4 .modal-body .img-fluid {
-    width: calc(100% + 40px); 
+    width: calc(100% + 40px);
     margin-left: -20px;
     max-width: none;
 }
@@ -1507,7 +1707,8 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 
 .modal-service-icon {
     font-size: 3.5rem;
-    color: #0084FF; /* color azul de BLAJ */
+    color: #0084FF;
+    /* color azul de BLAJ */
     margin-bottom: 15px;
     display: block;
     width: 100%;
@@ -1546,13 +1747,15 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .service-benefits-list .fa-check-circle {
-    color: #28a745; /* verde éxito */
+    color: #28a745;
+    /* verde Ã©xito */
     margin-right: 10px;
-    margin-top: 4px; /* alinear con el texto */
+    margin-top: 4px;
+    /* alinear con el texto */
 }
 
 /* ======================================== */
-/* 11. FOOTER (PIE DE PÁGINA) */
+/* 11. FOOTER (PIE DE PÃGINA) */
 /* ======================================== */
 .footer-custom {
     background-color: var(--current-footer-bg);
@@ -1561,21 +1764,24 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .footer-logo {
-    width: 60px; /* tamaño del logo en footer */
+    width: 60px;
+    /* tamaÃ±o del logo en footer */
     height: auto;
 }
 
 .footer-logo-text {
     font-size: 2rem;
     font-weight: 700;
-    color: #fff; /* color blanco */
+    color: #fff;
+    /* color blanco */
     line-height: 1;
 }
 
 .footer-tagline {
     font-size: 0.95rem;
     opacity: 0.8;
-    max-width: 300px; /* para que no se extienda mucho */
+    max-width: 300px;
+    /* para que no se extienda mucho */
 }
 
 .footer-title {
@@ -1602,20 +1808,23 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .footer-nav-links a:hover {
-    color: #0084FF; /* color 'highlight' de blaj */
+    color: #0084FF;
+    /* color 'highlight' de blaj */
     opacity: 1;
 }
 
 .social-links-footer a {
     color: #fff;
-    font-size: 1.5rem; /* tamaño de iconos font awesome */
+    font-size: 1.5rem;
+    /* tamaÃ±o de iconos font awesome */
     margin-right: 0;
     opacity: 1;
     transition: color 0.3s ease;
 }
 
 .social-links-footer a:hover {
-    color: #0084FF; /* color 'highlight' de blaj */
+    color: #0084FF;
+    /* color 'highlight' de blaj */
     opacity: 1;
 }
 
@@ -1635,9 +1844,10 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 
 @media (max-width: 991px) {
     .footer-custom {
-        text-align: center; /* centrar todo en móvil */
+        text-align: center;
+        /* centrar todo en mÃ³vil */
     }
-    
+
     .footer-logo {
         margin-left: auto;
         margin-right: auto;
@@ -1649,17 +1859,32 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
     }
 }
 
+
 /* ======================================== */
 /* 12. ELEMENTOS FLOTANTES (CTA Y CHATBOX) */
 /* ======================================== */
 
-/* Botón Flotante (Floating CTA) */
+/* AnimaciÃ³n de Pulso (Wave) - MÃ¡s sutil */
+@keyframes wave-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* BotÃ³n Flotante (Floating CTA) */
 .floating-cta-btn {
     position: fixed;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 998; /* Debajo del navbar (1000) y modales */
+    z-index: 998;
+    /* Debajo del navbar (1000) y modales */
     background: var(--current-btn-primary-bg);
     color: var(--current-btn-primary-text);
     padding: 12px 30px;
@@ -1679,6 +1904,19 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
 
+.floating-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50px;
+    z-index: -1;
+    animation: wave-animation 2s infinite;
+}
+
 .floating-cta-btn.visible {
     opacity: 1;
     visibility: visible;
@@ -1687,7 +1925,8 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 
 .floating-cta-btn:hover {
     color: var(--current-btn-primary-text);
-    transform: translateX(-50%) translateY(-3px); /* Pequeño salto en hover */
+    transform: translateX(-50%) translateY(-3px);
+    /* PequeÃ±o salto en hover */
     box-shadow: 0 8px 25px var(--current-shadow-color);
 }
 
@@ -1698,15 +1937,18 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
     right: 25px;
     width: 60px;
     height: 60px;
-    background-color: #0084FF; /* color azul de BLAJ */
-    color: var(--current-btn-primary-text); /* texto blanco o negro según el modo */
+    background-color: #0084FF;
+    /* color azul de BLAJ */
+    color: var(--current-btn-primary-text);
+    /* texto blanco o negro segÃºn el modo */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     cursor: pointer;
-    z-index: 1050; /* por encima del botón flotante de cta */
+    z-index: 1050;
+    /* por encima del botÃ³n flotante de cta */
     box-shadow: 0 5px 15px var(--current-shadow-color);
     transition: transform 0.3s ease;
 }
@@ -1721,7 +1963,8 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
     right: 25px;
     width: 90%;
     max-width: 370px;
-    background: var(--current-mobile-menu-bg); /* fondo del menú móvil (oscuro/claro) */
+    background: var(--current-mobile-menu-bg);
+    /* fondo del menÃº mÃ³vil (oscuro/claro) */
     border: 1px solid var(--current-border-color);
     border-radius: 20px;
     box-shadow: 0 10px 40px var(--current-shadow-color);
@@ -1742,7 +1985,7 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .chatbox-header {
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     padding: 1rem;
     color: var(--current-text-color);
     display: flex;
@@ -1779,7 +2022,7 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .chat-message.bot {
-    background: var(--current-card-bg); 
+    background: var(--current-card-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--current-border-color);
@@ -1789,7 +2032,8 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 }
 
 .chat-message.user {
-    background-color: #0084FF; /* color azul de BLAJ */
+    background-color: #0084FF;
+    /* color azul de BLAJ */
     color: #fff;
     align-self: flex-end;
     border-bottom-right-radius: 3px;
@@ -1813,7 +2057,8 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 #chat-input {
     flex-grow: 1;
     border: none;
-    background: rgba(0,0,0,0.1); /* fondo sutil */
+    background: rgba(0, 0, 0, 0.1);
+    /* fondo sutil */
     padding: 0.75rem;
     border-radius: 10px;
     color: var(--current-text-color);
@@ -1823,12 +2068,14 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
 
 #chat-input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #0084FF; /* color azul de BLAJ */
+    box-shadow: 0 0 0 2px #0084FF;
+    /* color azul de BLAJ */
 }
 
 #send-chat-btn {
     border: none;
-    background: #0084FF; /* color azul de BLAJ */
+    background: #0084FF;
+    /* color azul de BLAJ */
     color: #fff;
     width: 45px;
     height: 45px;
@@ -1857,14 +2104,14 @@ body.dark-mode .modal-body .row .col-lg-6 .h-100 {
     background-color: #0056a8;
 }
 
-/* ocultar cta flotante y chatbox cuando un modal está abierto */
+/* ocultar cta flotante y chatbox cuando un modal estÃ¡ abierto */
 body.modal-open .floating-cta-btn,
 body.modal-open .chatbox-icon {
     display: none;
 }
 
 /* ======================================== */
-/* 13. LAZY LOAD (EFECTO DE APARICIÓN) */
+/* 13. LAZY LOAD (EFECTO DE APARICIÃ“N) */
 /* ======================================== */
 .lazy-load {
     opacity: 0;
@@ -1885,6 +2132,11 @@ body.modal-open .chatbox-icon {
         flex: 0 0 auto;
         width: 33.33333333%;
     }
+
+    .floating-cta-btn {
+        font-size: 0.8em;
+        width: auto;
+    }
 }
 
 @media (max-width: 992px) {
@@ -1894,11 +2146,13 @@ body.modal-open .chatbox-icon {
 
     .section-title {
         font-size: 2.2rem;
-        width: 100%; /* asegura que la línea se centre correctamente */
+        width: 100%;
+        /* asegura que la lÃ­nea se centre correctamente */
     }
 
     .section-title::after {
-        width: 100px; /* ajusta el tamaño de la línea para pantallas más pequeñas */
+        width: 100px;
+        /* ajusta el tamaÃ±o de la lÃ­nea para pantallas mÃ¡s pequeÃ±as */
     }
 
     .lead {
@@ -1909,6 +2163,7 @@ body.modal-open .chatbox-icon {
         font-size: 2.5rem;
         min-height: 9rem;
     }
+
     .typed-text {
         font-size: 3rem;
     }
@@ -1917,7 +2172,9 @@ body.modal-open .chatbox-icon {
         flex: 0 0 auto;
         width: 50%;
     }
-    .col-md-4 { /* para pantallas medianas, 2 columnas */
+
+    .col-md-4 {
+        /* para pantallas medianas, 2 columnas */
         flex: 0 0 auto;
         width: 50%;
     }
@@ -1930,11 +2187,13 @@ body.modal-open .chatbox-icon {
 
     .section-title {
         font-size: 2rem;
-        width: 100%; /* asegura que la línea se centre correctamente */
+        width: 100%;
+        /* asegura que la lÃ­nea se centre correctamente */
     }
 
     .section-title::after {
-        width: 80px; /* ajusta el tamaño de la línea para pantallas más pequeñas */
+        width: 80px;
+        /* ajusta el tamaÃ±o de la lÃ­nea para pantallas mÃ¡s pequeÃ±as */
     }
 
     .lead {
@@ -1947,10 +2206,12 @@ body.modal-open .chatbox-icon {
 
     .typed-text {
         font-size: 2.5rem;
-        white-space: normal; /* permite que el texto se divida en varias líneas */
+        white-space: normal;
+        /* permite que el texto se divida en varias lÃ­neas */
     }
 
-    .col-md-4 { /* para pantallas pequeñas, 1 columna */
+    .col-md-4 {
+        /* para pantallas pequeÃ±as, 1 columna */
         flex: 0 0 auto;
         width: 100%;
     }
@@ -1960,14 +2221,26 @@ body.modal-open .chatbox-icon {
         height: 220px;
     }
 
-    .cube-face.front  { transform: rotateY(  0deg) translateZ(110px); }
-    .cube-face.right  { transform: rotateY( 90deg) translateZ(110px); }
-    .cube-face.back   { transform: rotateY(180deg) translateZ(110px); }
-    .cube-face.left   { transform: rotateY(-90deg) translateZ(110px); }
-    
+    .cube-face.front {
+        transform: rotateY(0deg) translateZ(110px);
+    }
+
+    .cube-face.right {
+        transform: rotateY(90deg) translateZ(110px);
+    }
+
+    .cube-face.back {
+        transform: rotateY(180deg) translateZ(110px);
+    }
+
+    .cube-face.left {
+        transform: rotateY(-90deg) translateZ(110px);
+    }
+
     .quote-banner .quote-text {
         font-size: 1.8rem;
     }
+
     .quote-banner .quote-author {
         font-size: 1rem;
     }
@@ -1998,12 +2271,15 @@ body.modal-open .chatbox-icon {
     .swiper-slide {
         padding: 15px;
     }
+
     .portfolio-item img {
         height: 200px;
     }
+
     .project-info h3 {
         font-size: 1.3rem;
     }
+
     .project-info p {
         font-size: 0.9rem;
     }
@@ -2014,4 +2290,31 @@ iframe {
     height: 100%;
     border: none;
     display: block;
+}
+
+/* Ajustes especÃ­ficos para el CTA en mÃ³vil */
+@media (max-width: 576px) {
+    .floating-cta-btn {
+        left: auto;
+        right: 95px;
+        /* Al lado del chatbot (25px + 60px + 10px) */
+        transform: translateY(100px);
+        /* Reset horizontal */
+        white-space: nowrap;
+        /* Texto en una sola lÃ­nea */
+        width: auto;
+        font-size: 1rem;
+        /* Un poco mÃ¡s grande */
+        padding: 14px 25px;
+        /* Un poco mÃ¡s grande */
+    }
+
+    .floating-cta-btn.visible {
+        transform: translateY(0);
+        /* Solo mover en Y */
+    }
+
+    .floating-cta-btn:hover {
+        transform: translateY(-3px);
+    }
 }
