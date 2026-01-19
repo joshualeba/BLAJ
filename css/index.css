@@ -64,6 +64,14 @@
     --loader-shadow-color-dark: #ffffff50;
     /* color de la sombra del loader en modo oscuro */
 
+    /* Variables específicas del Hero */
+    --hero-bg-light: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --hero-bg-dark: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    --hero-text-light: #333;
+    --hero-text-dark: #fff;
+    --hero-arrow-light: #333;
+    --hero-arrow-dark: #fff;
+
 
     /* variables activas, cambiarÃ¡n con el modo */
     --current-bg-color: var(--bg-color-light);
@@ -81,6 +89,11 @@
     --current-mobile-menu-bg: var(--mobile-menu-bg-light);
     --current-loader-color: var(--loader-color-light);
     --current-loader-shadow-color: var(--loader-shadow-color-light);
+
+    /* Variables activas del Hero */
+    --current-hero-bg: var(--hero-bg-light);
+    --current-hero-text: var(--hero-text-light);
+    --current-hero-arrow: var(--hero-arrow-light);
 }
 
 /* modo noche por defecto o activado por JS */
@@ -102,6 +115,11 @@ body.dark-mode {
     --current-loader-shadow-color: var(--loader-shadow-color-dark);
     --grid-color-dark: rgba(255, 255, 255, 0.05);
     --current-grid-color: var(--current-grid-color-dark);
+
+    /* Update hero active vars for dark mode */
+    --current-hero-bg: var(--hero-bg-dark);
+    --current-hero-text: var(--hero-text-dark);
+    --current-hero-arrow: var(--hero-arrow-dark);
 }
 
 /* ======================================== */
@@ -278,44 +296,7 @@ a:hover {
 /* ======================================== */
 /* 4. CURSOR PERSONALIZADO (SOLO DESKTOP) */
 /* ======================================== */
-.custom-cursor-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1060;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
 
-.custom-cursor-dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    /* color blanco sÃ³lido */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: top 0.05s ease-out, left 0.05s ease-out;
-    /* movimiento rÃ¡pido */
-}
-
-.custom-cursor-follower {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    /* sin fondo */
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    /* borde blanco */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: top 0.15s ease-out, left 0.15s ease-out;
-    /* movimiento mÃ¡s suave */
-}
 
 /* ======================================== */
 /* 5. NAVBAR (BARRA DE NAVEGACIÃ“N) */
@@ -658,6 +639,18 @@ a:hover {
     background-color: #fff;
 }
 
+/* Fix para visibilidad del link activo en menú móvil (ambos modos) */
+@media (max-width: 992px) {
+    .nav-links a.active {
+        color: #0084FF !important;
+        /* Azul de marca */
+    }
+
+    .nav-links a.active::after {
+        background-color: #0084FF;
+    }
+}
+
 /* ======================================== */
 /* 6. HERO SECTION (SECCIÃ“N PRINCIPAL) */
 /* ======================================== */
@@ -673,15 +666,16 @@ a:hover {
     overflow: hidden;
 }
 
-.video-background {
+#hero-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    object-fit: cover;
-    will-change: transform;
+    background: var(--current-hero-bg);
+    /* Fondo dinámico */
+    transition: background 0.5s ease;
 }
 
 .hero-overlay {
@@ -705,15 +699,17 @@ a:hover {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: #fff;
+    color: var(--current-hero-text);
+    /* Texto dinámico */
     min-height: 8.5rem;
+    transition: color 0.3s ease;
 }
 
 .typed-text {
     font-size: 3.5rem;
-    /* asegura que el texto de typed.js tenga el mismo tamaÃ±o */
     font-weight: 700;
-    color: #fff;
+    color: #0084FF;
+    /* Color de marca */
 }
 
 .typed-cursor {
@@ -738,13 +734,15 @@ a:hover {
     display: block;
     width: 35px;
     height: 35px;
-    border-bottom: 5px solid #fff;
-    border-right: 5px solid #fff;
+    border-bottom: 5px solid var(--current-hero-arrow);
+    /* Flechas dinámicas */
+    border-right: 5px solid var(--current-hero-arrow);
     border-radius: 4px;
     transform: rotate(45deg);
     margin: 3px auto;
     opacity: 0;
     animation: scroll-animation 2s infinite;
+    transition: border-color 0.3s ease;
 }
 
 .scroll-down-arrows span:nth-child(1) {
@@ -789,19 +787,20 @@ a:hover {
     /* fondo cristalino */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--current-hero-text);
+    /* Texto dinámico */
+    border: 1px solid var(--current-border-color);
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    box-shadow: 0 5px 15px var(--current-shadow-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: all 0.3s ease;
     /* para el pseudo-elemento */
     overflow: hidden;
     /* para el pseudo-elemento */
     z-index: 1;
-    transition: color 0.4s ease, border-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary-custom::before {
@@ -894,34 +893,147 @@ body.dark-mode .btn-primary-custom:hover {
     background-size: 40px 40px;
 }
 
-/* -- SecciÃ³n: Servicios (Services) -- */
-.servicesSwiper .swiper-slide {
-    background-position: center;
-    background-size: cover;
+/* -- Sección: Servicios (Services) -- */
+.servicesSwiper {
+    padding: 20px 10px 60px 10px;
 }
 
-.servicesSwiper .swiper-slide.service-card {
+.servicesSwiper .swiper-slide {
     height: auto;
     display: flex;
+}
+
+.servicesSwiper .service-card {
+    background: transparent;
+    border: 1px solid var(--current-border-color);
+    border-radius: 12px;
+    padding: 35px 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    /* alinea todo al inicio */
-    padding: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: none;
+}
+
+.servicesSwiper .service-card:hover {
+    transform: translateY(-5px);
+    border-color: #0084FF;
+    background: var(--current-card-bg);
 }
 
 .icon-service {
-    font-size: 3.5rem;
-    /* tamaÃ±o del icono */
-    color: var(--primary-color);
-    /* color del logo */
-    text-align: center;
-    width: 100%;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0084FF;
+    display: inline-block;
+    transition: all 0.3s ease;
+    width: auto;
+    text-align: left;
+    background: none;
+    -webkit-text-fill-color: initial;
+    filter: none;
+}
+
+.servicesSwiper .service-card:hover .icon-service {
+    transform: none;
+}
+
+.servicesSwiper .service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--current-text-color);
+    letter-spacing: -0.02em;
 }
 
 .highlight-text {
-    color: #0084FF;
-    /* azul del logo */
+    color: inherit;
+    /* remove highlight color for minimalist look or keep it subtle */
     font-weight: 700;
+}
+
+/* Optional: keep highlight on hover or specific word if needed, but for minimalist let's keep it simple or jus blue */
+.highlight-text {
+    color: #0084FF;
+}
+
+.servicesSwiper .service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--current-text-color);
+    opacity: 0.75;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Enlace minimalista 'Saber más' */
+.servicesSwiper .view-project-link {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    justify-content: flex-start;
+    height: auto;
+}
+
+.servicesSwiper .view-project-link:hover {
+    background: none;
+    animation: none;
+    transform: translateX(5px);
+}
+
+.servicesSwiper .view-project-link span {
+    color: var(--current-text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: none;
+    /* remove uppercase */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.servicesSwiper .view-project-link:hover span {
+    color: #0084FF;
+    opacity: 1;
+}
+
+.servicesSwiper .view-project-link span::after {
+    content: '→';
+    font-family: sans-serif;
+    /* ensure consistency */
+    transition: margin-left 0.3s ease;
+}
+
+.servicesSwiper .view-project-link:hover span::after {
+    margin-left: 5px;
+}
+
+/* Desactivar efectos del botón global */
+.servicesSwiper .btn-shine::after {
+    display: none;
+}
+
+.servicesSwiper .view-project-link span::after {
+    content: '→';
+    transition: margin-left 0.3s ease;
+}
+
+.servicesSwiper .view-project-link:hover span::after {
+    margin-left: 10px;
+}
+
+/* Desactivar efectos del botón global que no queremos aquí */
+.servicesSwiper .btn-shine::after {
+    display: none;
 }
 
 /* -- SecciÃ³n: Por quÃ© BLAJ (Why Blaj) -- */
@@ -2317,4 +2429,46 @@ iframe {
     .floating-cta-btn:hover {
         transform: translateY(-3px);
     }
+}
+
+/* -- SecciÃ³n: QuiÃ©nes Somos (Header & Stats) -- */
+.who-we-are-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--current-text-color);
+    opacity: 0.6;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.blaj-title-main {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #0084FF;
+    margin-bottom: 20px;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 300;
+    /* Light weight looks elegant like the image */
+    color: #0084FF;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: var(--current-text-color);
+    opacity: 0.7;
+    margin-bottom: 0;
+}
+
+.stats-card {
+    background: var(--current-card-bg);
+    border: 1px solid var(--current-border-color);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 60px;
+    box-shadow: 0 10px 30px -10px var(--current-shadow-color);
 }

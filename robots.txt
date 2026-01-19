@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blaj.netlify.app//sitemap.xml
+Sitemap: https://blaj.netlify.app/sitemap.xml

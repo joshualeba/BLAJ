@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // typed.js effect en el hero
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const options = {
         strings: ["convertir visitantes en clientes", "atraer a tu cliente ideal", "posicionamiento que genera ventas", "estrategias de crecimiento digital"],
         typeSpeed: 70,
@@ -61,24 +61,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const typed = new Typed('#typed-text', options);
 });
 
-// swiper para el carrusel de servicios (efecto coverflow)
-document.addEventListener("DOMContentLoaded", function() {
+// swiper para el carrusel de servicios (efecto coverflow ajustado)
+document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".servicesSwiper", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: "auto", // importante para coverflow
+        slidesPerView: "auto",
         loop: true,
+        speed: 600, // Transición más suave
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
         },
         coverflowEffect: {
-            rotate: 50,
+            rotate: 20, // Reducido para evitar distorsiones extremas
             stretch: 0,
-            depth: 100,
+            depth: 50, // Profundidad reducida
             modifier: 1,
-            slideShadows: true,
+            slideShadows: false, // Desactivado para evitar glitches visuales
         },
         pagination: {
             el: ".swiper-pagination",
@@ -89,16 +90,17 @@ document.addEventListener("DOMContentLoaded", function() {
             prevEl: ".services-swiper-prev",
         },
         breakpoints: {
-            // en desktop, mostramos 3 slides para que el efecto se aprecie
+            // en desktop, forzamos un ancho fijo si es necesario o mantenemos slidesPerView
             992: {
                 slidesPerView: 3,
+                spaceBetween: 0 // Importante para coverflow
             }
         },
     });
 });
 
 // swiper para el carrusel de proyectos
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".mySwiper", {
         slidesPerView: 1, // 1 proyecto en móviles
         spaceBetween: 30,
@@ -127,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // swiper para el carrusel de testimonios
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".testimonialsSwiper", {
         slidesPerView: 1, // por defecto 1 para móviles
         spaceBetween: 30,
@@ -160,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // modo día/noche
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const themeToggleInput = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -199,20 +201,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// efecto lazy load para elementos y títulos de sección
+// Efecto lazy load para elementos y títulos de sección
 document.addEventListener("DOMContentLoaded", () => {
     const lazyElements = document.querySelectorAll(".lazy-load");
 
+    if (lazyElements.length === 0) return;
+
     const observerOptions = {
-        threshold: 0.15
+        root: null,
+        rootMargin: "0px 0px -50px 0px", // Margen negativo para activar un poco antes
+        threshold: 0.1 // 10% de visibilidad para activar
     };
 
     const lazyObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-            } else {
-                entry.target.classList.remove("visible");
+                observer.unobserve(entry.target); // Dejar de observar para mantener visible
             }
         });
     }, observerOptions);
@@ -221,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // validación del formulario de contacto y modal de éxito
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.querySelector('.contact-form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -271,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function validateEmail() {
         const emailValue = emailInput.value.trim();
         // regex para validar formato de email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         clearError(emailInput, emailError);
 
@@ -332,9 +337,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // event listener para el envío del formulario
-    contactForm.addEventListener('submit', async function(event) {
+    contactForm.addEventListener('submit', async function (event) {
         // prevenir el envío por defecto para manejar la validación
-        event.preventDefault(); 
+        event.preventDefault();
 
         const isNameValid = validateName();
         const isEmailValid = validateEmail();
@@ -368,11 +373,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // desenfocar el fondo de la página al abrir un modal
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const pageWrapper = document.getElementById('page-wrapper');
     if (pageWrapper) {
         const modals = document.querySelectorAll('.modal');
-        
+
         modals.forEach(modal => {
             modal.addEventListener('show.bs.modal', () => {
                 pageWrapper.classList.add('blurred');
@@ -387,10 +392,10 @@ document.addEventListener("DOMContentLoaded", function() {
 // Lógica para el botón flotante (Floating CTA)
 document.addEventListener("DOMContentLoaded", () => {
     const floatingBtn = document.getElementById('floating-cta-btn');
-    
+
     // 1. Cambiamos el objetivo a las tarjetas de servicios (el swiper)
     const serviceCards = document.querySelector('.servicesSwiper');
-    
+
     // 2. Este es el nuevo objetivo para ocultar el botón
     const footer = document.querySelector('.footer-custom');
 
@@ -419,7 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Usaremos un solo observer para vigilar ambos elementos
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            
+
             // Lógica para las tarjetas de servicio
             if (entry.target === serviceCards) {
                 if (entry.isIntersecting) {
@@ -448,36 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(footer);
 });
 
-// --- Lógica para el Cursor Personalizado (Aro y Punto) ---
-document.addEventListener("DOMContentLoaded", () => {
-    const heroSection = document.getElementById('hero');
-    const cursorContainer = document.querySelector('.custom-cursor-container');
-    const cursorDot = document.querySelector('.custom-cursor-dot');
-    const cursorFollower = document.querySelector('.custom-cursor-follower');
 
-    if (!heroSection || !cursorContainer || !cursorDot || !cursorFollower) {
-        console.log("elementos del cursor no encontrados");
-        return;
-    }
-
-    window.addEventListener('mousemove', (e) => {
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
-        
-        cursorFollower.style.left = e.clientX + 'px';
-        cursorFollower.style.top = e.clientY + 'px';
-    });
-
-    heroSection.addEventListener('mouseenter', () => {
-        cursorContainer.style.opacity = '1';
-        cursorContainer.style.visibility = 'visible';
-    });
-
-    heroSection.addEventListener('mouseleave', () => {
-        cursorContainer.style.opacity = '0';
-        cursorContainer.style.visibility = 'hidden';
-    });
-});
 
 // scroll-spy para la navegación
 document.addEventListener("DOMContentLoaded", () => {
@@ -496,14 +472,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
 
                 navLinks.forEach(link => link.classList.remove('active'));
-                
+
                 if (activeLink) {
                     activeLink.classList.add('active');
                 }
             }
         });
     };
-    
+
     // calcula el offset basado en la altura de tu navbar
     const navHeight = navBar.offsetHeight + 15; // 15px de margen
     const observerOptions = {

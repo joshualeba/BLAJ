@@ -33,10 +33,7 @@
 </head>
 
 <body>
-    <div class="custom-cursor-container">
-        <div class="custom-cursor-dot"></div>
-        <div class="custom-cursor-follower"></div>
-    </div>
+
     <div class="page-loader">
         <div class="loader"></div>
     </div>
@@ -45,8 +42,7 @@
 
         <nav class="navbar-custom">
             <div class="container-nav">
-                <img src="multimedia/logo.png" alt="logo de BLAJ" style="width: 50px; height: 50px;" class="lazy-load"
-                    loading="lazy">
+                <img src="multimedia/logo.png" alt="logo de BLAJ" style="width: 50px; height: 50px;">
                 <div class="navbar-actions">
                     <label class="ui-switch">
                         <input type="checkbox" id="theme-toggle">
@@ -71,10 +67,7 @@
         </nav>
 
         <header id="hero" class="hero-section">
-            <video autoplay muted loop id="hero-video" class="video-background">
-                <source src="multimedia/hero_video.mp4" type="video/mp4">
-                Tu navegador no soporta videos en html5.
-            </video>
+            <canvas id="hero-canvas"></canvas>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>BLAJ es tu aliado en <span id="typed-text" class="typed-text"></span></h1>
@@ -1154,6 +1147,7 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://blaj-chatbot.vercel.app/static/blaj/widget.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 
 </html>
