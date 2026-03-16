@@ -1,10 +1,104 @@
-// loader de página
+// limpieza inicial de URL (quitar index.html y hashes)
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.endsWith('index.html')) {
+        const cleanPath = window.location.pathname.replace('index.html', '');
+        window.history.replaceState(null, null, cleanPath);
+    }
+    // Si hay un hash al cargar, lo limpiamos después de un breve momento para permitir el scroll inicial si fuera necesario
+    if (window.location.hash) {
+        setTimeout(() => {
+            window.history.replaceState(null, null, window.location.pathname);
+        }, 1000);
+    }
+
+    // Manejar clics en enlaces para navegación limpia
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Actualizar URL sin hash
+                window.history.pushState(null, null, window.location.pathname);
+            }
+        });
+    });
+});
+
+// loader de página con contador de porcentaje
 document.addEventListener('DOMContentLoaded', () => {
     const pageLoader = document.querySelector('.page-loader');
-    if (pageLoader) {
-        // oculta el loader después de que todo el contenido haya cargado
+    const percentageText = document.querySelector('.loader-percentage');
+    const statusText = document.querySelector('.loader-status');
+    
+    // Bloquear scroll y elementos externos
+    document.body.classList.add('loader-active');
+    
+    if (pageLoader && percentageText) {
+        let progress = 0;
+        const startTime = Date.now();
+        const minDuration = 2000; // Mínimo 2 segundos de loader
+        let isPageLoaded = false;
+
+        const updateProgress = () => {
+            const elapsedTime = Date.now() - startTime;
+            
+            // Lógica de progreso "real" simulado
+            if (!isPageLoaded) {
+                // Si la página no ha terminado de cargar, avanzamos hasta el 99%
+                if (progress < 99) {
+                    progress += Math.random() * 1.5;
+                    if (progress > 99) progress = 99;
+                }
+            } else {
+                // Si la página ya cargó, verificamos si cumplimos el tiempo mínimo
+                if (elapsedTime >= minDuration) {
+                    // Si pasaron los 2 segundos, llegamos rápido al 100%
+                    progress += 10;
+                    if (progress >= 100) {
+                        progress = 100;
+                        percentageText.textContent = '100%';
+                        statusText.textContent = "¡Todo listo!";
+                        
+                        // Pequeña pausa en 100% para satisfacción visual
+                        setTimeout(() => {
+                            pageLoader.classList.add('hidden');
+                            document.body.classList.remove('loader-active');
+                        }, 400);
+                        
+                        clearInterval(progressInterval);
+                        return;
+                    }
+                } else {
+                    // Si ya cargó pero no han pasado 2 segundos, seguimos subiendo normal
+                    if (progress < 99) {
+                        progress += Math.random() * 2;
+                    }
+                }
+            }
+            
+            percentageText.textContent = `${Math.floor(progress)}%`;
+            
+            // Frases profesionales dinámicas según el progreso
+            if (progress > 85) {
+                statusText.textContent = "Finalizando detalles exclusivos...";
+            } else if (progress > 50) {
+                statusText.textContent = "Optimizando la interfaz...";
+            } else if (progress > 25) {
+                statusText.textContent = "Conectando con el servidor...";
+            }
+        };
+
+        // Intervalo suave para la actualización
+        const progressInterval = setInterval(updateProgress, 40);
+
+        // Detectar carga real de la página
         window.addEventListener('load', () => {
-            pageLoader.classList.add('hidden');
+            isPageLoaded = true;
         });
     }
 });
@@ -253,7 +347,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // función para validar el nombre
     function validateName() {
         const nameValue = nameInput.value.trim();
-        const namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/; // letras, acentos, ñ y espacios
+        // Solo letras y espacios, sin números ni caracteres especiales
+        const namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
         clearError(nameInput, nameError);
 
@@ -262,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
         if (!namePattern.test(nameValue)) {
-            showError(nameInput, 'El nombre solo puede contener letras, acentos y "ñ".', nameError);
+            showError(nameInput, 'El nombre no puede contener números ni caracteres especiales.', nameError);
             return false;
         }
         if (nameValue.length > 60) {
@@ -275,8 +370,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // función para validar el correo electrónico
     function validateEmail() {
         const emailValue = emailInput.value.trim();
-        // regex para validar formato de email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Regex más estricta para correos reales
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         clearError(emailInput, emailError);
 
@@ -286,10 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (!emailPattern.test(emailValue)) {
             showError(emailInput, 'Por favor, introduce un correo electrónico válido.', emailError);
-            return false;
-        }
-        if (emailValue.length > 50) {
-            showError(emailInput, 'El correo electrónico no puede exceder los 50 caracteres.', emailError);
             return false;
         }
         return true;
@@ -303,6 +394,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (messageValue === '') {
             showError(messageTextarea, 'El mensaje es obligatorio.', messageError);
+            return false;
+        }
+        if (messageValue.length < 10) {
+            showError(messageTextarea, 'El mensaje debe tener al menos 10 caracteres.', messageError);
             return false;
         }
         if (messageValue.length > 300) {
@@ -337,38 +432,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // event listener para el envío del formulario
-    contactForm.addEventListener('submit', async function (event) {
-        // prevenir el envío por defecto para manejar la validación
-        event.preventDefault();
-
+    contactForm.addEventListener('submit', function (event) {
         const isNameValid = validateName();
         const isEmailValid = validateEmail();
         const isMessageValid = validateMessage();
         const isPrivacyValid = validatePrivacy();
 
-        // si todas las validaciones pasan, se puede enviar el formulario
-        if (isNameValid && isEmailValid && isMessageValid && isPrivacyValid) {
-            // envía el formulario usando fetch para manejar la respuesta
-            try {
-                const response = await fetch(this.action, {
-                    method: this.method,
-                    body: new FormData(this),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    successModal.show(); // muestra el modal de éxito
-                    contactForm.reset(); // limpia el formulario
-                } else {
-                    alert('Hubo un problema al enviar tu mensaje. por favor, inténtalo de nuevo más tarde.');
-                }
-            } catch (error) {
-                console.error('error al enviar el formulario:', error);
-                alert('Hubo un problema de conexión. por favor, inténtalo de nuevo más tarde.');
-            }
+        // Si alguna validación falla, cancelamos el envío
+        if (!isNameValid || !isEmailValid || !isMessageValid || !isPrivacyValid) {
+            event.preventDefault();
+            event.stopPropagation();
         }
+        // Si todo es válido, el script blaj-forms.js se encargará del resto automáticamente
     });
 });
 
@@ -475,6 +550,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (activeLink) {
                     activeLink.classList.add('active');
+                }
+
+                // Limpiar la URL bar (quitar hash) mientras se navega
+                if (window.location.hash === `#${id}`) {
+                    window.history.replaceState(null, null, window.location.pathname);
                 }
             }
         });

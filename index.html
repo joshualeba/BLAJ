@@ -34,10 +34,6 @@
 
 <body>
 
-    <div class="page-loader">
-        <div class="loader"></div>
-        <p class="loader-text">Creando experiencias digitales...</p>
-    </div>
 
     <div id="page-wrapper">
 
@@ -408,17 +404,17 @@
                 <p class="text-center lead">¿Listo/a para llevar tu marca al siguiente nivel? Contáctanos</p>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-8">
-                        <form class="contact-form glassmorphism-card lazy-load" action="https://formspree.io/f/meozqaqy"
+                        <form class="contact-form glassmorphism-card lazy-load" action="https://blaj-chatbot.vercel.app/f/4927cef5936e"
                             method="POST" novalidate>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="name" name="nombre" maxlength="60"
-                                    pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
+                                    required>
                                 <span class="error-message" id="name-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" name="email" maxlength="50"
+                                <input type="email" class="form-control" id="email" name="correo" maxlength="50"
                                     required>
                                 <span class="error-message" id="email-error"></span>
                             </div>
@@ -447,24 +443,6 @@
 
     </div>
 
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title w-100 text-center" id="successModalLabel">¡Mensaje enviado con éxito!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff; color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <p>Gracias por contactarnos. nos pondremos en contacto contigo a la brevedad.</p>
-                    <i class="fas fa-check-circle check-icon"></i>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <button type="button" class="btn-primary-custom" data-bs-dismiss="modal">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="footer-custom section-padding pb-4 pt-5">
         <div class="container">
@@ -891,174 +869,257 @@
     </a>
 
     <div class="modal fade" id="modalServicio1" tabindex="-1" aria-labelledby="modalServicio1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fas fa-lightbulb modal-service-icon"></i>
-                    <h5 class="modal-title w-100 mb-3" id="modalServicio1Label">Servicio: Fundación de marca</h5>
-                    <p class="modal-service-description">
-                        No se trata solo de un logo, sino de construir una marca memorable que genere confianza y
-                        conecte con tu audiencia.
-                    </p>
-                    <h6 class="service-benefits-title">¿Qué incluye este servicio?</h6>
-                    <ul class="service-benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Diseño de identidad visual (logo, colores, tipografía).
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Guía de estilo (brand guide) para coherencia total.</li>
-                        <li><i class="fas fa-check-circle"></i> Definición de tono de voz y mensajes clave.</li>
-                        <li><i class="fas fa-check-circle"></i> Estrategia de posicionamiento de marca.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
-                        <span class="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket me-2"></i> Solicitar cotización
-                        </span>
-                    </a>
+                <div class="modal-split-layout">
+                    <!-- Panel Visual de Impacto -->
+                    <div class="modal-accent-panel">
+                        <div class="waves-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                        </div>
+                        <i class="fas fa-lightbulb"></i>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
+                                data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <!-- Panel de Estrategia y Contenido -->
+                    <div class="modal-content-panel">
+                        <h2 class="modal-title-premium" id="modalServicio1Label">Fundación de marca</h2>
+                        <p class="modal-description-premium">
+                            No se trata solo de un logo, sino de construir una identidad memorable que genere autoridad, 
+                            seguridad y conecte emocionalmente con tu audiencia ideal.
+                        </p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-pill">
+                                <i class="fas fa-fingerprint"></i>
+                                <span>Identidad Visual</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-book"></i>
+                                <span>Brand Guide</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-comment-dots"></i>
+                                <span>Tono de Voz</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-chess-knight"></i>
+                                <span>Posicionamiento</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
+                                <i class="fas fa-rocket me-2"></i> Cotizar este servicio
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="modal fade" id="modalServicio2" tabindex="-1" aria-labelledby="modalServicio2Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fas fa-globe modal-service-icon"></i>
-                    <h5 class="modal-title w-100 mb-3" id="modalServicio2Label">Servicio: Plataforma de conversión (web)
-                    </h5>
-                    <p class="modal-service-description">
-                        Tu sitio web es tu principal vendedor. lo diseñamos como una herramienta optimizada para
-                        convertir visitantes en clientes, no solo como un folleto digital.
-                    </p>
-                    <h6 class="service-benefits-title">¿Qué incluye este servicio?</h6>
-                    <ul class="service-benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Diseño web responsive (ux/ui) centrado en el usuario.
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Optimización de velocidad (core web vitals).</li>
-                        <li><i class="fas fa-check-circle"></i> Integración de llamadas a la acción (ctas) estratégicas.
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Plataforma autoadministrable (si se requiere).</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
-                        <span class="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket me-2"></i> Solicitar cotización
-                        </span>
-                    </a>
+                <div class="modal-split-layout">
+                    <div class="modal-accent-panel">
+                        <div class="waves-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                        </div>
+                        <i class="fas fa-globe"></i>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
+                                data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <div class="modal-content-panel">
+                        <h2 class="modal-title-premium" id="modalServicio2Label">Plataforma de conversión</h2>
+                        <p class="modal-description-premium">
+                            Tu sitio web es tu activo más valioso. Lo Transformamos en una herramienta de alto rendimiento 
+                            diseñada específicamente para convertir clics en clientes reales.
+                        </p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-pill">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Diseño UX/UI</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-bolt"></i>
+                                <span>Core Web Vitals</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-mouse-pointer"></i>
+                                <span>CTAs Estratégicos</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Escalabilidad</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
+                                <i class="fas fa-rocket me-2"></i> Cotizar mi sitio web
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="modal fade" id="modalServicio3" tabindex="-1" aria-labelledby="modalServicio3Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fas fa-chart-line modal-service-icon"></i>
-                    <h5 class="modal-title w-100 mb-3" id="modalServicio3Label">Servicio: Atracción y SEO</h5>
-                    <p class="modal-service-description">
-                        Atraemos a tu cliente ideal mediante posicionamiento orgánico (seo) y estrategias de contenido
-                        que responden a sus búsquedas y necesidades reales.
-                    </p>
-                    <h6 class="service-benefits-title">Nuestro proceso de SEO:</h6>
-                    <ul class="service-benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Investigación de palabras clave (keyword research).</li>
-                        <li><i class="fas fa-check-circle"></i> Optimización técnica on-page (velocidad, metaetiquetas).
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Creación de contenido de valor (blogging).</li>
-                        <li><i class="fas fa-check-circle"></i> Estrategia de link building para aumentar tu autoridad.
-                        </li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
-                        <span class="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket me-2"></i> Solicitar cotización
-                        </span>
-                    </a>
+                <div class="modal-split-layout">
+                    <div class="modal-accent-panel">
+                        <div class="waves-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                        </div>
+                        <i class="fas fa-chart-line"></i>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
+                                data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <div class="modal-content-panel">
+                        <h2 class="modal-title-premium" id="modalServicio3Label">Atracción y SEO</h2>
+                        <p class="modal-description-premium">
+                            Aparece donde tus clientes te buscan. Implementamos estrategias inteligentes de posicionamiento 
+                            orgánico para dominar las búsquedas y atraer tráfico calificado.
+                        </p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-pill">
+                                <i class="fas fa-search"></i>
+                                <span>Keyword Research</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-code"></i>
+                                <span>SEO Técnico</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-pen-fancy"></i>
+                                <span>Inbound Content</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-link"></i>
+                                <span>Link Building</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
+                                <i class="fas fa-rocket me-2"></i> Cotizar SEO ahora
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="modal fade" id="modalServicio4" tabindex="-1" aria-labelledby="modalServicio4Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fas fa-bullseye modal-service-icon"></i>
-                    <h5 class="modal-title w-100 mb-3" id="modalServicio4Label">Servicio: Estrategia digital integral
-                    </h5>
-                    <p class="modal-service-description">
-                        Analizamos tu mercado y tus objetivos para trazar un plan de acción claro. alineamos todas las
-                        piezas (web, seo, marca) para obtener resultados medibles.
-                    </p>
-                    <h6 class="service-benefits-title">¿Qué incluye este servicio?</h6>
-                    <ul class="service-benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Análisis de mercado, audiencia y competencia.</li>
-                        <li><i class="fas fa-check-circle"></i> Definición de KPI's y objetivos realistas.</li>
-                        <li><i class="fas fa-check-circle"></i> Planificación de embudos de venta (funnels).</li>
-                        <li><i class="fas fa-check-circle"></i> Hoja de ruta de implementación táctica.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
-                        <span class="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket me-2"></i> Solicitar cotización
-                        </span>
-                    </a>
+                <div class="modal-split-layout">
+                    <div class="modal-accent-panel">
+                        <div class="waves-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                        </div>
+                        <i class="fas fa-bullseye"></i>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
+                                data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <div class="modal-content-panel">
+                        <h2 class="modal-title-premium" id="modalServicio4Label">Estrategia integral</h2>
+                        <p class="modal-description-premium">
+                            Cada acción tiene un porqué. Trazamos una hoja de ruta clara que alinea tu identidad, 
+                            tu tecnología y tu marketing hacia un objetivo único: Resultados Medibles.
+                        </p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-pill">
+                                <i class="fas fa-users"></i>
+                                <span>Análisis de Audiencia</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-tasks"></i>
+                                <span>Definición de KPIs</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-filter"></i>
+                                <span>Sales Funnels</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Roadmap Táctico</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
+                                <i class="fas fa-rocket me-2"></i> Cotizar mi plan estratégico
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="modal fade" id="modalServicio5" tabindex="-1" aria-labelledby="modalServicio5Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fas fa-sync-alt modal-service-icon"></i>
-                    <h5 class="modal-title w-100 mb-3" id="modalServicio5Label">Servicio: Optimización continua (ROI)
-                    </h5>
-                    <p class="modal-service-description">
-                        Analizamos los datos (analítica web) y optimizamos tu embudo de ventas constantemente para
-                        maximizar tu retorno de inversión (roi).
-                    </p>
-                    <h6 class="service-benefits-title">¿Qué incluye este servicio?</h6>
-                    <ul class="service-benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Monitorización y analítica web (ej. Google Analytics).
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Pruebas a/b en landing pages y ctas.</li>
-                        <li><i class="fas fa-check-circle"></i> Optimización de la tasa de conversión (cro).</li>
-                        <li><i class="fas fa-check-circle"></i> Reportes de rendimiento y ajustes estratégicos.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
-                        <span class="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket me-2"></i> Solicitar cotización
-                        </span>
-                    </a>
+                <div class="modal-split-layout">
+                    <div class="modal-accent-panel">
+                        <div class="waves-container">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                        </div>
+                        <i class="fas fa-sync-alt"></i>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
+                                data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <div class="modal-content-panel">
+                        <h2 class="modal-title-premium" id="modalServicio5Label">Optimización y ROI</h2>
+                        <p class="modal-description-premium">
+                            El mundo digital no se detiene, y tu estrategia tampoco. Analizamos datos en tiempo real 
+                            para evolucionar tu embudo y exprimir cada centavo de tu inversión.
+                        </p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-pill">
+                                <i class="fas fa-microscope"></i>
+                                <span>A/B Testing</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Optimización CRO</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-chart-area"></i>
+                                <span>Data Analytics</span>
+                            </div>
+                            <div class="benefit-pill">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Scaling de ROI</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
+                                <i class="fas fa-rocket me-2"></i> Cotizar optimización
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1116,7 +1177,7 @@
                             cliente.</li>
                     </ul>
                     <p>Si no desea tratar sus datos personales para estos fines adicionales, a partir de este punto
-                        puede comunicarnos el contenido anterior a través de blaj@gmail.com.</p>
+                        puede comunicarnos el contenido anterior a través de blajdigital@gmail.com.</p>
                     <p>La negativa a utilizar sus datos personales para estos fines no será una razón para que le
                         neguemos nuestros servicios, precios y cotizaciones.</p>
 
@@ -1124,11 +1185,11 @@
                         style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem;">
                         EVOCACIÓN DE CONSENTIMIENTO PARA EL TRATAMIENTO DE SUS DATOS PERSONALES</h4>
                     <p>Le informamos que usted como titular podrá revocar el consentimiento que ha otorgado a BLAJ para
-                        el tratamiento de sus datos, deberá enviar un correo electrónico a "blaj@gmail.com", con el
+                        el tratamiento de sus datos, deberá enviar un correo electrónico a "blajdigital@gmail.com", con el
                         asunto “REVOCACIÓN DE CONSENTIMIENTO” y cumpliendo con los requisitos previamente establecidos.
                     </p>
                     <p>Para que usted pueda tener un mayor conocimiento de la información que comparte para su
-                        cotización, puede solicitarlo al correo "blaj@gmail.com".</p>
+                        cotización, puede solicitarlo al correo "blajdigital@gmail.com".</p>
                     <p>Tendremos un plazo máximo de 30 días para atender su petición y le informaremos sobre la
                         procedencia de la misma, a través de los datos de contacto que nos haya proporcionado.</p>
 
@@ -1154,6 +1215,16 @@
     <script src="https://blaj-chatbot.vercel.app/static/blaj/widget.js"></script>
     <script src="js/index.js"></script>
     <script src="js/particles.js"></script>
+    <script src="https://blaj-chatbot.vercel.app/static/js/blaj-forms.js"></script>
+    <div class="page-loader">
+        <div class="flip-to-square">
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+        </div>
+        <div class="loader-percentage">0%</div>
+        <p class="loader-status">Preparando una experiencia exclusiva...</p>
+    </div>
 </body>
 
 </html>
