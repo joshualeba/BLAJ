@@ -32,7 +32,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="loader-active">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.add('light-mode');
+            }
+        })();
+    </script>
+
+    <div class="page-loader">
+        <div class="flip-to-square">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader-percentage">0%</div>
+        <p class="loader-status">Preparando una experiencia exclusiva...</p>
+    </div>
+
 
 
     <div id="page-wrapper">
@@ -44,6 +72,11 @@
                 <div class="navbar-actions">
                     <label class="ui-switch">
                         <input type="checkbox" id="theme-toggle">
+                        <script>
+                            if (document.body.classList.contains('dark-mode')) {
+                                document.getElementById('theme-toggle').checked = true;
+                            }
+                        </script>
                         <div class="slider">
                             <div class="circle"></div>
                         </div>
@@ -1216,15 +1249,7 @@
     <script src="js/index.js"></script>
     <script src="js/particles.js"></script>
     <script src="https://blaj-chatbot.vercel.app/static/js/blaj-forms.js"></script>
-    <div class="page-loader">
-        <div class="flip-to-square">
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-        </div>
-        <div class="loader-percentage">0%</div>
-        <p class="loader-status">Preparando una experiencia exclusiva...</p>
-    </div>
+
 </body>
 
 </html>

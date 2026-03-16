@@ -260,37 +260,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const themeToggleInput = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // función para establecer el tema
-    function setTheme(theme) {
-        if (theme === 'dark') {
+    // alternar tema al cambiar el input
+    themeToggleInput.addEventListener('change', () => {
+        if (themeToggleInput.checked) {
             body.classList.add('dark-mode');
             body.classList.remove('light-mode');
             localStorage.setItem('theme', 'dark');
-            themeToggleInput.checked = true; // sincroniza el input
         } else {
             body.classList.remove('dark-mode');
             body.classList.add('light-mode');
             localStorage.setItem('theme', 'light');
-            themeToggleInput.checked = false; // sincroniza el input
-        }
-    }
-
-    // verificar la preferencia del usuario en localStorage o del sistema
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setTheme('dark');
-    } else {
-        setTheme('light'); // modo claro por defecto si no hay preferencia
-    }
-
-    // alternar tema al cambiar el input
-    themeToggleInput.addEventListener('change', () => {
-        if (themeToggleInput.checked) {
-            setTheme('dark');
-        } else {
-            setTheme('light');
         }
     });
 });
