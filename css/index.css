@@ -90,10 +90,36 @@
     --current-loader-color: var(--loader-color-light);
     --current-loader-shadow-color: var(--loader-shadow-color-light);
 
-    /* Variables activas del Hero */
     --current-hero-bg: var(--hero-bg-light);
     --current-hero-text: var(--hero-text-light);
     --current-hero-arrow: var(--hero-arrow-light);
+
+    /* Variables de la scrollbar */
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: #0084FF;
+    --scrollbar-thumb-hover: #0066cc;
+}
+
+/* Estilos recomendados para el scroll suave de lenis */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
 }
 
 /* modo noche por defecto o activado por JS */
@@ -120,14 +146,39 @@ body.dark-mode {
     --current-hero-bg: var(--hero-bg-dark);
     --current-hero-text: var(--hero-text-dark);
     --current-hero-arrow: var(--hero-arrow-dark);
+
+    /* Scrollbar en modo oscuro */
+    --scrollbar-track: transparent;
 }
 
 /* ======================================== */
 /* 2. ESTILOS GENERALES Y RESET */
 /* ======================================== */
 html {
-    scroll-behavior: smooth;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Personalización de la scrollbar para navegadores webkit (chrome, safari, edge) */
+::-webkit-scrollbar {
+    width: 16px; /* Aumentado para mayor facilidad de agarre */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 20px;
+    /* Usamos un borde transparente más inteligente para separar la barra del borde sin perder área de clic */
+    border: 4px solid transparent; 
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
 }
 
 body {
@@ -493,12 +544,12 @@ body.loader-active > *:not(.page-loader):not(script) {
     opacity: 0;
 }
 
-.ui-switch input:checked+.slider .circle {
+.ui-switch input:checked ~ .slider .circle {
     left: calc(100% - var(--circle-diameter));
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
 }
 
-.ui-switch input:active+.slider .circle::before {
+.ui-switch input:active ~ .slider .circle::before {
     -webkit-transition: 0s;
     -o-transition: 0s;
     transition: 0s;

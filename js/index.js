@@ -1,4 +1,22 @@
-// limpieza inicial de URL (quitar index.html y hashes)
+// Inicialización de lenis para scroll suave premium
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smoothHover: true,
+    smoothTouch: false, // Desactivado en táctil para mantener sensaciones nativas de móvil
+    touchMultiplier: 2,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+// Limpieza inicial de url (quitar index.html y hashes)
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('index.html')) {
         const cleanPath = window.location.pathname.replace('index.html', '');
@@ -11,16 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Manejar clics en enlaces para navegación limpia
+    // Manejar clics en enlaces para navegación limpia y suave con lenis
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            e.preventDefault();
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
+                lenis.scrollTo(targetElement, {
+                    offset: -100, // Ajuste para el navbar
+                    duration: 1.5,
                 });
                 // Actualizar URL sin hash
                 window.history.pushState(null, null, window.location.pathname);
