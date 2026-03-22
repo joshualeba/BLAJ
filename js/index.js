@@ -1,4 +1,4 @@
-// Inicialización de lenis para scroll suave premium
+// Inicialización de Lenis para scroll suave premium
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -16,7 +16,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// Limpieza inicial de url (quitar index.html y hashes)
+// Limpieza inicial de URL (quitar index.html y hashes)
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('index.html')) {
         const cleanPath = window.location.pathname.replace('index.html', '');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// loader de página con contador de porcentaje
+// Loader de página con contador de porcentaje
 document.addEventListener('DOMContentLoaded', () => {
     const pageLoader = document.querySelector('.page-loader');
     const percentageText = document.querySelector('.loader-percentage');
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// navbar responsive
+// Navbar responsive
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// typed.js effect en el hero
+// Typed.js effect en el hero
 document.addEventListener("DOMContentLoaded", function () {
     const options = {
         strings: ["convertir visitantes en clientes", "atraer a tu cliente ideal", "posicionamiento que genera ventas", "estrategias de crecimiento digital"],
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const typed = new Typed('#typed-text', options);
 });
 
-// swiper para el carrusel de servicios (efecto coverflow ajustado)
+// Swiper para el carrusel de servicios (efecto coverflow ajustado)
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".servicesSwiper", {
         effect: "coverflow",
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// swiper para el carrusel de proyectos
+// Swiper para el carrusel de proyectos
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".mySwiper", {
         slidesPerView: 1, // 1 proyecto en móviles
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// swiper para el carrusel de testimonios
+// Swiper para el carrusel de testimonios
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".testimonialsSwiper", {
         slidesPerView: 1, // por defecto 1 para móviles
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// modo día/noche
+// Modo día/noche
 document.addEventListener("DOMContentLoaded", function () {
     const themeToggleInput = document.getElementById('theme-toggle');
     const body = document.body;
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lazyElements.forEach(el => lazyObserver.observe(el));
 });
 
-// validación del formulario de contacto y modal de éxito
+// Validación del formulario de contacto y modal de éxito
 document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.querySelector('.contact-form');
     const nameInput = document.getElementById('name');
@@ -330,63 +330,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameError = document.getElementById('name-error');
     const emailError = document.getElementById('email-error');
     const messageError = document.getElementById('message-error');
-    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const successModalElement = document.getElementById('successModal');
+    const successModal = successModalElement ? new bootstrap.Modal(successModalElement) : null;
+    const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
+    const validationErrorsList = document.getElementById('validation-errors-list');
 
-    // función para mostrar error
+    // Función para mostrar error en el input
     function showError(input, message, errorElement) {
         input.classList.add('is-invalid');
         errorElement.textContent = message;
     }
 
-    // función para limpiar error
+    // Función para limpiar error en el input
     function clearError(input, errorElement) {
         input.classList.remove('is-invalid');
         errorElement.textContent = '';
     }
 
-    // función para validar el nombre
+    // Función para validar el nombre
     function validateName() {
         const nameValue = nameInput.value.trim();
-        // Solo letras y espacios, sin números ni caracteres especiales
         const namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
         clearError(nameInput, nameError);
 
         if (nameValue === '') {
             showError(nameInput, 'El nombre es obligatorio.', nameError);
-            return false;
+            return { valid: false, message: 'Tu nombre es obligatorio' };
         }
         if (!namePattern.test(nameValue)) {
             showError(nameInput, 'El nombre no puede contener números ni caracteres especiales.', nameError);
-            return false;
+            return { valid: false, message: 'El nombre solo puede contener letras' };
         }
         if (nameValue.length > 60) {
             showError(nameInput, 'El nombre no puede exceder los 60 caracteres.', nameError);
-            return false;
+            return { valid: false, message: 'El nombre es demasiado largo' };
         }
-        return true;
+        return { valid: true };
     }
 
-    // función para validar el correo electrónico
+    // Función para validar el correo electrónico
     function validateEmail() {
         const emailValue = emailInput.value.trim();
-        // Regex más estricta para correos reales
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         clearError(emailInput, emailError);
 
         if (emailValue === '') {
             showError(emailInput, 'El correo electrónico es obligatorio.', emailError);
-            return false;
+            return { valid: false, message: 'El correo electrónico es obligatorio' };
         }
         if (!emailPattern.test(emailValue)) {
             showError(emailInput, 'Por favor, introduce un correo electrónico válido.', emailError);
-            return false;
+            return { valid: false, message: 'Introduce un correo electrónico válido' };
         }
-        return true;
+        return { valid: true };
     }
 
-    // función para validar el mensaje
+    // Función para validar el mensaje
     function validateMessage() {
         const messageValue = messageTextarea.value.trim();
 
@@ -394,60 +395,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (messageValue === '') {
             showError(messageTextarea, 'El mensaje es obligatorio.', messageError);
-            return false;
+            return { valid: false, message: 'El mensaje es obligatorio' };
         }
         if (messageValue.length < 10) {
             showError(messageTextarea, 'El mensaje debe tener al menos 10 caracteres.', messageError);
-            return false;
+            return { valid: false, message: 'El mensaje debe ser más descriptivo' };
         }
         if (messageValue.length > 300) {
             showError(messageTextarea, 'El mensaje no puede exceder los 300 caracteres.', messageError);
-            return false;
+            return { valid: false, message: 'El mensaje es demasiado largo' };
         }
-        return true;
+        return { valid: true };
     }
 
-    // función para validar la política de privacidad
+    // Función para validar la política de privacidad
     function validatePrivacy() {
         clearError(privacyInput, privacyError);
 
         if (!privacyInput.checked) {
             showError(privacyInput, 'Debes aceptar la política de privacidad.', privacyError);
-            return false;
+            return { valid: false, message: 'Debes aceptar la política de privacidad' };
         }
-        return true;
+        return { valid: true };
     }
 
     // añadir event listeners para validación en tiempo real (al perder el foco)
-    nameInput.addEventListener('blur', validateName);
-    emailInput.addEventListener('blur', validateEmail);
-    messageTextarea.addEventListener('blur', validateMessage);
+    nameInput.addEventListener('blur', () => validateName());
+    emailInput.addEventListener('blur', () => validateEmail());
+    messageTextarea.addEventListener('blur', () => validateMessage());
+    privacyInput.addEventListener('blur', () => validatePrivacy());
 
     // añadir event listeners para limpiar errores al escribir
     nameInput.addEventListener('input', () => clearError(nameInput, nameError));
     emailInput.addEventListener('input', () => clearError(emailInput, emailError));
     messageTextarea.addEventListener('input', () => clearError(messageTextarea, messageError));
-    privacyInput.addEventListener('blur', validatePrivacy);
     privacyInput.addEventListener('input', () => clearError(privacyInput, privacyError));
 
-
-    // event listener para el envío del formulario
+    // Event listener para el envío del formulario
     contactForm.addEventListener('submit', function (event) {
-        const isNameValid = validateName();
-        const isEmailValid = validateEmail();
-        const isMessageValid = validateMessage();
-        const isPrivacyValid = validatePrivacy();
+        const errors = [];
+        
+        const nameRes = validateName();
+        if (!nameRes.valid) errors.push(nameRes.message);
+        
+        const emailRes = validateEmail();
+        if (!emailRes.valid) errors.push(emailRes.message);
+        
+        const messageRes = validateMessage();
+        if (!messageRes.valid) errors.push(messageRes.message);
+        
+        const privacyRes = validatePrivacy();
+        if (!privacyRes.valid) errors.push(privacyRes.message);
 
-        // Si alguna validación falla, cancelamos el envío
-        if (!isNameValid || !isEmailValid || !isMessageValid || !isPrivacyValid) {
+        // Si alguna validación falla, cancelamos el envío y mostramos el modal
+        if (errors.length > 0) {
             event.preventDefault();
             event.stopPropagation();
+            
+            // Construir el mensaje de errores con estructura premium
+            let errorHtml = '';
+            errors.forEach(err => {
+                errorHtml += `
+                    <div class="error-item-premium">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>${err}</span>
+                    </div>`;
+            });
+            
+            validationErrorsList.innerHTML = errorHtml;
+            validationModal.show();
         }
-        // Si todo es válido, el script blaj-forms.js se encargará del resto automáticamente
+        // Si todo es válido, el script de blaj-forms.js se encargará del resto
     });
 });
 
-// desenfocar el fondo de la página al abrir un modal
+// Desenfocar el fondo de la página al abrir un modal
 document.addEventListener("DOMContentLoaded", function () {
     const pageWrapper = document.getElementById('page-wrapper');
     if (pageWrapper) {
@@ -530,7 +552,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// scroll-spy para la navegación
+// Scroll-spy para la navegación
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll('header[id], section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');

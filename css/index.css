@@ -2588,3 +2588,91 @@ iframe {
     margin-top: 60px;
     box-shadow: 0 10px 30px -10px var(--current-shadow-color);
 }
+
+/* ======================================== */
+/* 10. PREMIUM VALIDATION MODAL */
+/* ======================================== */
+.premium-validation-modal .modal-content {
+    background: var(--current-card-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--current-border-color);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.premium-validation-modal .error-icon-container {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    animation: pulse-warning 2s infinite;
+}
+
+.premium-validation-modal .error-icon-container i {
+    font-size: 2.5rem;
+    color: #ffc107;
+}
+
+@keyframes pulse-warning {
+    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+.premium-validation-modal .modal-title-premium {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--current-text-color);
+    margin-top: 10px;
+}
+
+.errors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.error-item-premium {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--current-border-color);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.error-item-premium:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: #0084FF;
+}
+
+.error-item-premium i {
+    color: #0084FF;
+    font-size: 1.1rem;
+}
+
+.error-item-premium span {
+    font-size: 0.95rem;
+    color: var(--current-text-color);
+    font-weight: 500;
+}
+
+.premium-validation-modal .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.8;
+}
+
+.premium-validation-modal .btn-close-white:hover {
+    opacity: 1;
+}
