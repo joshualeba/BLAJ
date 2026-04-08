@@ -36,7 +36,7 @@
 
 <body class="loader-active">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
@@ -46,6 +46,8 @@
             }
         })();
     </script>
+
+
 
     <div class="page-loader">
         <div class="flip-to-square">
@@ -90,7 +92,16 @@
                     </button>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#services">Servicios</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="#services" class="dropdown-trigger">Servicios <i class="fas fa-chevron-down" style="font-size:0.65rem; margin-left:4px; transition: transform 0.3s ease;"></i></a>
+                        <ul class="dropdown-menu-custom">
+                            <li><a href="#services"><i class="fas fa-lightbulb" style="margin-right:10px; color:#0084FF; font-size:0.85rem;"></i>Fundación de marca</a></li>
+                            <li><a href="#services"><i class="fas fa-globe" style="margin-right:10px; color:#0084FF; font-size:0.85rem;"></i>Plataforma de conversión</a></li>
+                            <li><a href="#services"><i class="fas fa-chart-line" style="margin-right:10px; color:#0084FF; font-size:0.85rem;"></i>Atracción y SEO</a></li>
+                            <li><a href="#services"><i class="fas fa-bullseye" style="margin-right:10px; color:#0084FF; font-size:0.85rem;"></i>Estrategia digital</a></li>
+                            <li><a href="#services"><i class="fas fa-sync-alt" style="margin-right:10px; color:#0084FF; font-size:0.85rem;"></i>Optimización continua</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#why-blaj">Metodología</a></li>
                     <li><a href="#portfolio">Portafolio</a></li>
                     <li><a href="#testimonials">Testimonios</a></li>
@@ -205,6 +216,16 @@
             </div>
         </section>
 
+        <section class="quote-banner lazy-load">
+            <div class="container">
+                <blockquote class="text-center">
+                    <p class="quote-text">“Si tu negocio no está en internet, tu negocio <span class="highlight-text">no
+                            existe</span>.”</p>
+                    <footer class="quote-author">— Bill Gates</footer>
+                </blockquote>
+            </div>
+        </section>
+
         <section id="why-blaj" class="section-padding lazy-load">
             <div class="container">
                 <h2 class="section-title text-center">Nuestra metodología de crecimiento</h2>
@@ -270,32 +291,22 @@
                         <div class="cube-container lazy-load">
                             <div class="cube">
                                 <div class="cube-face front"><img
-                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845810/krosa_kxmcxy.jpg"
+                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602749/27b179ab-6dad-4f98-a949-0d417a549f2e.png"
                                         alt="visualización de marca" class="lazy-load" loading="lazy"></div>
                                 <div class="cube-face right"><img
-                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/sht_jtiigf.jpg"
+                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png"
                                         alt="visualización de diseño web" class="lazy-load" loading="lazy"></div>
                                 <div class="cube-face back"><img
                                         src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg"
                                         alt="visualización de seo" class="lazy-load" loading="lazy"></div>
                                 <div class="cube-face left"><img
-                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845810/homefixx_kggum6.jpg"
-                                        alt="visualización de estrategia" class="lazy-load" loading="lazy"></div>
+                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775603892/b43684da-e102-40e5-9700-f102bb4e4d23.png"
+                                        alt="visualización de dashboard BLAJ" class="lazy-load" loading="lazy"></div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
-        </section>
-
-        <section class="quote-banner lazy-load">
-            <div class="container">
-                <blockquote class="text-center">
-                    <p class="quote-text">“Si tu negocio no está en internet, tu negocio <span class="highlight-text">no
-                            existe</span>.”</p>
-                    <footer class="quote-author">— Bill Gates</footer>
-                </blockquote>
             </div>
         </section>
 
@@ -315,8 +326,7 @@
                                     <h3>Macramé Creativo</h3>
                                     <p>Logramos monetizar una pasión y aumentar las ventas de un infoproducto (e-book)
                                         con un embudo de alta conversión.</p>
-                                    <a role="button" class="view-project-link btn-shine" data-bs-toggle="modal"
-                                        data-bs-target="#modalProyecto1">
+                                    <a href="macrame.html" class="view-project-link btn-shine" target="_blank">
                                         <span>Conocer más</span>
                                     </a>
                                 </div>
@@ -328,34 +338,31 @@
                                     <h3>Barbería Templum: estilo y tradición</h3>
                                     <p>Capturamos la esencia de la marca y facilitamos la agenda de citas, mejorando la
                                         experiencia del cliente y la operación del negocio.</p>
-                                    <a role="button" class="view-project-link btn-shine" data-bs-toggle="modal"
-                                        data-bs-target="#modalProyecto2">
+                                    <a href="templum.html" class="view-project-link btn-shine" target="_blank">
                                         <span>Conocer más</span>
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide portfolio-item">
-                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845810/krosa_kxmcxy.jpg"
+                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602749/27b179ab-6dad-4f98-a949-0d417a549f2e.png"
                                     alt="proyecto 3 - sitio web krosa" class="lazy-load" loading="lazy">
                                 <div class="project-info">
                                     <h3>Krosa: construcción industrial</h3>
                                     <p>Posicionamos a Krosa como líder en el sector industrial, generando la confianza y
                                         autoridad necesarias para competir en licitaciones.</p>
-                                    <a role="button" class="view-project-link btn-shine" data-bs-toggle="modal"
-                                        data-bs-target="#modalProyecto3">
+                                    <a href="krosa.html" class="view-project-link btn-shine" target="_blank">
                                         <span>Conocer más</span>
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide portfolio-item">
-                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/sht_jtiigf.jpg"
+                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png"
                                     alt="proyecto 4 - SHT soluciones" class="lazy-load" loading="lazy">
                                 <div class="project-info">
                                     <h3>SHT: soluciones hidráulicas</h3>
                                     <p>Modernizamos una empresa con 50 años de legado, logrando un aumento en la
                                         generación de cotizaciones industriales a través de su nueva web.</p>
-                                    <a role="button" class="view-project-link btn-shine" data-bs-toggle="modal"
-                                        data-bs-target="#modalProyecto4">
+                                    <a href="sht.html" class="view-project-link btn-shine" target="_blank">
                                         <span>Conocer más</span>
                                     </a>
                                 </div>
@@ -439,12 +446,11 @@
                 <p class="text-center lead">¿Listo/a para llevar tu marca al siguiente nivel? Contáctanos</p>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-8">
-                        <form class="contact-form glassmorphism-card lazy-load" action="https://blaj-chatbot.vercel.app/f/4927cef5936e"
-                            method="POST" novalidate>
+                        <form class="contact-form glassmorphism-card lazy-load"
+                            action="https://blaj-chatbot.vercel.app/f/4927cef5936e" method="POST" novalidate>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="name" name="nombre" maxlength="60"
-                                    required>
+                                <input type="text" class="form-control" id="name" name="nombre" maxlength="60" required>
                                 <span class="error-message" id="name-error"></span>
                             </div>
                             <div class="mb-3">
@@ -519,384 +525,11 @@
             <hr class="footer-divider">
 
             <div class="text-center">
-                <p class="footer-copyright">&copy; 2025 BLAJ. Todos los derechos reservados. <br> Diseñado por Joshua
-                    León</p>
+                <p class="footer-copyright">&copy; 2026 BLAJ. Todos los derechos reservados. <br> Diseñado y
+                    desarrollado por Andrés León</p>
             </div>
         </div>
     </footer>
-
-    <div class="modal fade" id="modalProyecto1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title w-100" id="modalProyecto1Label">Resultado: aumento de ventas (macramé
-                        creativo)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body">
-
-                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg"
-                        alt="proyecto macramé creativo" class="img-fluid rounded mb-4 lazy-load" loading="lazy">
-
-                    <div class="h-100 text-start mb-4">
-
-                        <p class="lead text-center"
-                            style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; color: var(--current-text-color); border-bottom: 1px solid var(--current-border-color); padding-bottom: 15px;">
-                            Logramos monetizar la pasión de la creadora, aumentando sus ventas con un embudo optimizado
-                            y copywriting persuasivo.
-                        </p>
-
-                        <h5 class="text-center mb-3" style="color: #0084FF; font-weight: 700;"><i
-                                class="fas fa-tools me-2"></i> ¿Cómo ayudamos a Macramé Creativo?</h5>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-funnel-dollar icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Embudo de alta conversión</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Diseñamos un landing page optimizado (LP) con un solo objetivo: convertir
-                                        visitantes en compradores del e-book.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-bullseye icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Copywriting persuasivo</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Creamos un mensaje claro enfocado en la transformación ("del primer nudo al
-                                        primer ingreso") para conectar con el público objetivo.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-stopwatch icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Optimización de confianza (CRO)</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Implementamos gatillos mentales clave: urgencia (oferta 3x1), prueba social
-                                        (testimonios) y garantías de 7 días.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-book-open icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Branding de producto</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Creamos la identidad visual del e-book y los bonos (mockups) para transmitir un
-                                        alto valor percibido a un precio accesible.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="https://macramecreativo.netlify.app/" class="btn-primary-custom"
-                            target="_blank">visitar sitio</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProyecto2" tabindex="-1" aria-labelledby="modalProyecto2Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title w-100" id="modalProyecto2Label">Resultado: optimización de citas (barbería
-                        templum)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body">
-
-                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg"
-                        alt="proyecto barberia templum" class="img-fluid rounded mb-4 lazy-load" loading="lazy">
-
-                    <p class="lead text-center"
-                        style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; color: var(--current-text-color); border-bottom: 1px solid var(--current-border-color); padding-bottom: 15px;">
-                        Digitalizamos la experiencia del cliente, facilitando la agenda de citas y capturando la esencia
-                        profesional de la marca.
-                    </p>
-
-                    <h5 class="text-center mb-3" style="color: #0084FF; font-weight: 700;"><i
-                            class="fas fa-tools me-2"></i> ¿Cómo lo logramos?</h5>
-
-                    <div class="row justify-content-center mb-4">
-
-                        <div class="col-lg-6 mb-4">
-                            <div class="h-100 p-4 text-center"
-                                style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                <i class="fas fa-palette icon-service mb-3"
-                                    style="font-size: 2.5rem; color: #0084FF;"></i>
-                                <h3
-                                    style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                    Diseño de marca</h3>
-                                <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">Creamos
-                                    la identidad de Templum, asegurando que su imagen sea moderna y memorable, lo cual
-                                    los diferencia de la competencia.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-                            <div class="h-100 p-4 text-center"
-                                style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                <i class="fas fa-desktop icon-service mb-3"
-                                    style="font-size: 2.5rem; color: #0084FF;"></i>
-                                <h3
-                                    style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                    Plataforma para ventas</h3>
-                                <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                    Desarrollamos un sitio web que se ve perfecto en todos los dispositivos (móviles,
-                                    tabletas, pc), lo que significa más clientes y más ventas.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-                            <div class="h-100 p-4 text-center"
-                                style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                <i class="fas fa-calendar-check icon-service mb-3"
-                                    style="font-size: 2.5rem; color: #0084FF;"></i>
-                                <h3
-                                    style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                    Conversión de citas</h3>
-                                <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">Incluimos
-                                    herramientas como un sistema de respuestas automáticas y avisos dinámicos de ofertas
-                                    para que los visitantes reserven sus citas.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-                            <div class="h-100 p-4 text-center"
-                                style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                <i class="fas fa-gem icon-service mb-3" style="font-size: 2.5rem; color: #0084FF;"></i>
-                                <h3
-                                    style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                    Estrategia premium</h3>
-                                <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                    Posicionamos su servicio de visagismo como un servicio de alta calidad, lo que les
-                                    permite justificar y cobrar tarifas Premium.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="https://barberiatemplum.netlify.app/" class="btn-primary-custom"
-                            target="_blank">visitar sitio</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProyecto3" tabindex="-1" aria-labelledby="modalProyecto3Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title w-100" id="modalProyecto3Label">Resultado: autoridad B2B (krosa)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body">
-
-                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845810/krosa_kxmcxy.jpg"
-                        alt="proyecto krosa" class="img-fluid rounded mb-4 lazy-load" loading="lazy">
-
-                    <div class="h-100 text-start mb-4">
-
-                        <p class="lead text-center"
-                            style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; color: var(--current-text-color); border-bottom: 1px solid var(--current-border-color); padding-bottom: 15px;">
-                            Posicionamos a Krosa como líder en el sector industrial, proyectando la confianza y seriedad
-                            necesarias para ganar licitaciones de alto valor.
-                        </p>
-
-                        <h5 class="text-center mb-3" style="color: #0084FF; font-weight: 700;"><i
-                                class="fas fa-tools me-2"></i> ¿Cómo ayudamos a Krosa?</h5>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-building icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Diseño de imagen corporativa</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Creamos la identidad digital de Krosa, proyectando la seriedad y confianza
-                                        necesarias para atraer grandes contratos.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-industry icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Plataforma de autoridad</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Desarrollamos un sitio web optimizado para mostrar sus proyectos de gran escala
-                                        (plantas industriales, obra pública) y posicionarlos como expertos.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-chart-line icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Estrategia de posicionamiento</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Implementamos SEO enfocado al sector B2B y gubernamental, atrayendo a tomadores
-                                        de decisión.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-handshake icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Optimización de comunicación</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Integramos canales de contacto claros para facilitar la licitación y la
-                                        captación de proyectos de alto valor.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="https://krosa.netlify.app/" class="btn-primary-custom" target="_blank">visitar
-                            sitio</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalProyecto4" tabindex="-1" aria-labelledby="modalProyecto4Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content glassmorphism-card">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title w-100" id="modalProyecto4Label">Resultado: aumento de cotizaciones (SHT)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
-                        style="background-color: #fff;"></button>
-                </div>
-                <div class="modal-body">
-
-                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/sht_jtiigf.jpg"
-                        alt="proyecto SHT" class="img-fluid rounded mb-4 lazy-load" loading="lazy">
-
-                    <div class="h-100 text-start mb-4">
-
-                        <p class="lead text-center"
-                            style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; color: var(--current-text-color); border-bottom: 1px solid var(--current-border-color); padding-bottom: 15px;">
-                            Modernizamos la imagen digital de una empresa con 50 años de legado, logrando un aumento en
-                            la generación de cotizaciones industriales.
-                        </p>
-
-                        <h5 class="text-center mb-3" style="color: #0084FF; font-weight: 700;"><i
-                                class="fas fa-tools me-2"></i> ¿Cómo ayudamos a SHT?</h5>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-cogs icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Identidad corporativa industrial</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Diseñamos una identidad digital que proyecta sus 50 años de experiencia y
-                                        liderazgo en el sector metalmecánico.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-laptop-code icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Plataforma web B2B</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Desarrollamos un sitio web enfocado en la industria, optimizado para exhibir sus
-                                        servicios complejos y su historial de proyectos.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-robot icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Generación de leads</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Integramos un asistente virtual (chatbot) y formularios de contacto claros para
-                                        capturar cotizaciones de proyectos industriales.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-4">
-                                <div class="h-100 p-4 text-center"
-                                    style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
-                                    <i class="fas fa-medal icon-service mb-3"
-                                        style="font-size: 2.5rem; color: #0084FF;"></i>
-                                    <h3
-                                        style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--current-text-color);">
-                                        Posicionamiento de autoridad</h3>
-                                    <p style="font-size: 0.95rem; color: var(--current-text-color); opacity: 0.9;">
-                                        Creamos una narrativa de marca basada en sus dos generaciones de ingenieros para
-                                        generar máxima confianza.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="https://shtijerina.com/" class="btn-primary-custom" target="_blank">visitar sitio</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
     <a href="https://wa.link/khsws3" class="floating-cta-btn" id="floating-cta-btn" target="_blank">
         <i class="fas fa-rocket me-2"></i>
@@ -914,18 +547,18 @@
                             <div class="wave wave-2"></div>
                         </div>
                         <i class="fas fa-lightbulb"></i>
-                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
-                                data-bs-dismiss="modal" aria-label="close"></button>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+                            data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    
+
                     <!-- Panel de Estrategia y Contenido -->
                     <div class="modal-content-panel">
                         <h2 class="modal-title-premium" id="modalServicio1Label">Fundación de marca</h2>
                         <p class="modal-description-premium">
-                            No se trata solo de un logo, sino de construir una identidad memorable que genere autoridad, 
+                            No se trata solo de un logo, sino de construir una identidad memorable que genere autoridad,
                             seguridad y conecte emocionalmente con tu audiencia ideal.
                         </p>
-                        
+
                         <div class="benefits-grid">
                             <div class="benefit-pill">
                                 <i class="fas fa-fingerprint"></i>
@@ -966,17 +599,18 @@
                             <div class="wave wave-2"></div>
                         </div>
                         <i class="fas fa-globe"></i>
-                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
-                                data-bs-dismiss="modal" aria-label="close"></button>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+                            data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    
+
                     <div class="modal-content-panel">
                         <h2 class="modal-title-premium" id="modalServicio2Label">Plataforma de conversión</h2>
                         <p class="modal-description-premium">
-                            Tu sitio web es tu activo más valioso. Lo Transformamos en una herramienta de alto rendimiento 
+                            Tu sitio web es tu activo más valioso. Lo Transformamos en una herramienta de alto
+                            rendimiento
                             diseñada específicamente para convertir clics en clientes reales.
                         </p>
-                        
+
                         <div class="benefits-grid">
                             <div class="benefit-pill">
                                 <i class="fas fa-mobile-alt"></i>
@@ -1017,17 +651,18 @@
                             <div class="wave wave-2"></div>
                         </div>
                         <i class="fas fa-chart-line"></i>
-                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
-                                data-bs-dismiss="modal" aria-label="close"></button>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+                            data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    
+
                     <div class="modal-content-panel">
                         <h2 class="modal-title-premium" id="modalServicio3Label">Atracción y SEO</h2>
                         <p class="modal-description-premium">
-                            Aparece donde tus clientes te buscan. Implementamos estrategias inteligentes de posicionamiento 
+                            Aparece donde tus clientes te buscan. Implementamos estrategias inteligentes de
+                            posicionamiento
                             orgánico para dominar las búsquedas y atraer tráfico calificado.
                         </p>
-                        
+
                         <div class="benefits-grid">
                             <div class="benefit-pill">
                                 <i class="fas fa-search"></i>
@@ -1068,17 +703,17 @@
                             <div class="wave wave-2"></div>
                         </div>
                         <i class="fas fa-bullseye"></i>
-                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
-                                data-bs-dismiss="modal" aria-label="close"></button>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+                            data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    
+
                     <div class="modal-content-panel">
                         <h2 class="modal-title-premium" id="modalServicio4Label">Estrategia integral</h2>
                         <p class="modal-description-premium">
-                            Cada acción tiene un porqué. Trazamos una hoja de ruta clara que alinea tu identidad, 
+                            Cada acción tiene un porqué. Trazamos una hoja de ruta clara que alinea tu identidad,
                             tu tecnología y tu marketing hacia un objetivo único: Resultados Medibles.
                         </p>
-                        
+
                         <div class="benefits-grid">
                             <div class="benefit-pill">
                                 <i class="fas fa-users"></i>
@@ -1119,17 +754,17 @@
                             <div class="wave wave-2"></div>
                         </div>
                         <i class="fas fa-sync-alt"></i>
-                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3" 
-                                data-bs-dismiss="modal" aria-label="close"></button>
+                        <button type="button" class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+                            data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    
+
                     <div class="modal-content-panel">
                         <h2 class="modal-title-premium" id="modalServicio5Label">Optimización y ROI</h2>
                         <p class="modal-description-premium">
-                            El mundo digital no se detiene, y tu estrategia tampoco. Analizamos datos en tiempo real 
+                            El mundo digital no se detiene, y tu estrategia tampoco. Analizamos datos en tiempo real
                             para evolucionar tu embudo y exprimir cada centavo de tu inversión.
                         </p>
-                        
+
                         <div class="benefits-grid">
                             <div class="benefit-pill">
                                 <i class="fas fa-microscope"></i>
@@ -1169,9 +804,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"
                         style="background-color: #fff;"></button>
                 </div>
-                <div class="modal-body" style="text-align: left;">
+                <div class="modal-body" style="text-align: left;" data-lenis-prevent>
 
-                    <h4 style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700;">Responsable de la protección de sus datos personales.</h4>
+                    <h4 style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700;">Responsable de la
+                        protección de sus datos personales.</h4>
                     <p>BLAJ, dedicado a los servicios de creación de marca, diseño web, posicionamiento SEO y
                         estrategias de crecimiento digital, mejor conocido como BLAJ, es responsable del tratamiento de
                         sus datos personales.</p>
@@ -1219,7 +855,8 @@
                         style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem;">
                         Evocación de consentimiento para el tratamiento de sus datos personales</h4>
                     <p>Le informamos que usted como titular podrá revocar el consentimiento que ha otorgado a BLAJ para
-                        el tratamiento de sus datos, deberá enviar un correo electrónico a "blajdigital@gmail.com", con el
+                        el tratamiento de sus datos, deberá enviar un correo electrónico a "blajdigital@gmail.com", con
+                        el
                         asunto “REVOCACIÓN DE CONSENTIMIENTO” y cumpliendo con los requisitos previamente establecidos.
                     </p>
                     <p>Para que usted pueda tener un mayor conocimiento de la información que comparte para su
@@ -1242,7 +879,8 @@
     </div>
 
     <!-- Modal de Validación (Premium Glassmorphism) -->
-    <div class="modal fade premium-validation-modal" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+    <div class="modal fade premium-validation-modal" id="validationModal" tabindex="-1"
+        aria-labelledby="validationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content glassmorphism-card text-center border-0">
                 <div class="modal-header border-0 justify-content-center flex-column pb-0">
@@ -1252,9 +890,10 @@
                     <h5 class="modal-title-premium" id="validationModalLabel">
                         Verificación requerida
                     </h5>
-                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="close"></button>
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
-                <div class="modal-body pt-4">
+                <div class="modal-body pt-4" data-lenis-prevent>
                     <div id="validation-errors-list" class="errors-grid">
                         <!-- Los errores se insertarán aquí dinámicamente -->
                     </div>
@@ -1265,7 +904,6 @@
             </div>
         </div>
     </div>
-<br>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

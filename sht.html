@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAJ | SHT</title>
+    <link rel="icon" href="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845811/logo_gy8n31.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        :root {
+            --project-accent: #0084FF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--current-bg-color);
+            color: var(--current-text-color);
+            line-height: 1.8;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--current-navbar-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            transform: translateX(-5px);
+            color: var(--project-accent);
+        }
+
+        .project-hero-section {
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+
+        .project-category {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--project-accent);
+            margin-bottom: 25px;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .main-hero-img {
+            border-radius: 40px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+            margin-top: 60px;
+            border: 1px solid var(--current-border-color);
+            max-width: 100%;
+        }
+
+        .story-section {
+            padding: 120px 0 60px;
+        }
+
+        .story-row {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+
+        .story-img-container {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--current-border-color);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .story-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .story-text p {
+            font-size: 1.15rem;
+            color: var(--current-text-color);
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* Live Experience Banner - Optimized for all modes */
+        .live-project-banner {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 0;
+            text-align: center;
+            border-radius: 40px;
+            margin: 60px 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .live-project-banner h2 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .live-project-banner .section-tag {
+            color: var(--project-accent) !important;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Define button explicitly to avoid global overrides */
+        .btn-project-action {
+            display: inline-block;
+            background: var(--project-accent);
+            color: #ffffff !important;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 132, 255, 0.4);
+        }
+
+        .btn-project-action:hover {
+            background: #0066cc; /* Slightly darker blue */
+            color: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 132, 255, 0.6);
+            text-decoration: none;
+        }
+
+        .contact-cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background-color: var(--current-bg-color);
+        }
+
+        .section-tag {
+            color: var(--project-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Footer centering for mobile */
+        @media (max-width: 767px) {
+            .footer-custom .row > div {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-logo-container {
+                justify-content: center !important;
+            }
+            .social-links-footer {
+                justify-content: center !important;
+            }
+            .footer-copyright {
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .story-row {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 40px;
+            }
+            .live-project-banner {
+                margin: 20px 10px;
+                padding: 80px 0;
+            }
+        }
+    </style>
+    <script>
+        // Immediate theme sync to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode-active');
+            }
+        })();
+    </script>
+</head>
+<body class="dark-mode">
+    <script>
+        // Apply classes to body
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            }
+        })();
+    </script>
+
+    <!-- Navbar Custom -->
+    <nav class="navbar-custom">
+        <div class="container-nav">
+            <div class="d-flex align-items-center gap-4">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-chevron-left"></i> Regresar
+                </a>
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845812/logo_fqrwqj.png"
+                        alt="logo de BLAJ" style="width: 50px; height: 50px;">
+                </a>
+            </div>
+            <div class="navbar-actions">
+                <label class="ui-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <script>
+                        if (document.body.classList.contains('dark-mode')) {
+                            document.getElementById('theme-toggle').checked = true;
+                        } else if (document.body.classList.contains('light-mode')) {
+                            document.getElementById('theme-toggle').checked = false;
+                        }
+                    </script>
+                    <div class="slider">
+                        <div class="circle"></div>
+                    </div>
+                </label>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://wa.link/khsws3" class="btn-navbar-contact" target="_blank">Contáctanos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="project-hero-section lazy-load">
+            <div class="container">
+                <span class="project-category">Ingeniería & Tradición</span>
+                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">SHT: modernizando un legado.</h1>
+                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Transformamos la presencia digital de una institución con 50 años de experiencia técnica para unir su historia con la eficiencia de la industria 4.0.</p>
+                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png" 
+                     alt="SHT portada" class="main-hero-img">
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png" alt="SHT detalle">
+                    </div>
+                    <div class="story-text">
+                        <h2>Ingeniería de alta precisión</h2>
+                        <p>Diseñamos cada sección para reflejar la exactitud que SHT aporta a sus soluciones hidráulicas. Un sitio web que no solo informa, sino que genera confianza inmediata a través de una estética limpia y técnica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Live Experience -->
+        <section class="live-project-banner lazy-load">
+            <div class="container">
+                <span class="section-tag">Experiencia en vivo</span>
+                <h2 class="mb-4" style="font-size: 3rem; font-weight: 800;">Mira el resultado final.</h2>
+                <a href="#" class="btn-project-action" target="_blank">Visitar proyecto</a>
+            </div>
+        </section>
+
+        <!-- Section 2: Contact CTA -->
+        <section class="contact-cta-section lazy-load">
+            <div class="container">
+                <span class="section-tag">Próximo paso</span>
+                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Listo/a para elevar tu marca?</h2>
+                <p class="mb-5 mx-auto" style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">Transformamos tu visión en una ventaja competitiva real. Habla con nosotros y comencemos a construir tu legado digital.</p>
+                <a href="https://wa.link/khsws3" class="btn-project-action" style="padding: 18px 60px;" target="_blank">Contactar a BLAJ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-custom section-padding pb-4 pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="footer-logo-container d-flex align-items-center mb-3">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845812/logo_fqrwqj.png"
+                            alt="logo de BLAJ" class="footer-logo me-2" loading="lazy" style="width: 50px;">
+                        <span class="footer-logo-text">BLAJ</span>
+                    </div>
+                    <p class="footer-tagline">Aliados en tu crecimiento digital. Creamos marcas y experiencias web que convierten.</p>
+                </div>
+
+                <div class="col-lg-6 mb-4 mb-lg-0 d-flex flex-column justify-content-center text-lg-end">
+                    <h5 class="footer-title">Hablemos</h5>
+                    <div class="social-links-footer d-flex justify-content-lg-end">
+                        <a href="https://wa.link/khsws3" aria-label="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="text-center">
+                <p class="footer-copyright">&copy; 2026 BLAJ. Todos los derechos reservados. <br> Diseñado y desarrollado por Andrés León</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://blaj-chatbot.vercel.app/static/blaj/widget.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode');
+                document.body.classList.toggle('light-mode');
+                localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            });
+        }
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(".lazy-load").forEach(el => lazyObserver.observe(el));
+    </script>
+</body>
+</html>

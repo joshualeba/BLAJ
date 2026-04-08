@@ -1,20 +1,32 @@
 // Inicialización de Lenis para scroll suave premium
 const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smoothHover: true,
-    smoothTouch: false, // Desactivado en táctil para mantener sensaciones nativas de móvil
-    touchMultiplier: 2,
+    lerp: 0.1, 
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 1.5,
+    infinite: false,
 });
 
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
-
 requestAnimationFrame(raf);
+
+// Efecto Parallax Profesional y Fluido (Sincronizado con Lenis)
+let heroParallax = null;
+document.addEventListener('DOMContentLoaded', () => {
+    heroParallax = document.querySelector('.hero-content');
+});
+
+lenis.on('scroll', (e) => {
+    const scroll = e.animatedScroll;
+    if (heroParallax && scroll <= window.innerHeight) {
+        // Usamos transformaciones 3D para la GPU y solo si es visible el hero
+        heroParallax.style.transform = `translate3d(0, ${scroll * 0.35}px, 0)`;
+    }
+});
 
 // Limpieza inicial de URL (quitar index.html y hashes)
 document.addEventListener('DOMContentLoaded', () => {
@@ -179,22 +191,13 @@ document.addEventListener("DOMContentLoaded", function () {
 // Swiper para el carrusel de servicios (efecto coverflow ajustado)
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".servicesSwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
+        slidesPerView: 1,
+        spaceBetween: 20,
         loop: true,
-        speed: 600, // Transición más suave
+        centeredSlides: false, // Cambiado para mostrar 3 de forma estándar
         autoplay: {
-            delay: 4000,
+            delay: 3000,
             disableOnInteraction: false,
-        },
-        coverflowEffect: {
-            rotate: 20, // Reducido para evitar distorsiones extremas
-            stretch: 0,
-            depth: 50, // Profundidad reducida
-            modifier: 1,
-            slideShadows: false, // Desactivado para evitar glitches visuales
         },
         pagination: {
             el: ".swiper-pagination",
@@ -205,10 +208,14 @@ document.addEventListener("DOMContentLoaded", function () {
             prevEl: ".services-swiper-prev",
         },
         breakpoints: {
-            // en desktop, forzamos un ancho fijo si es necesario o mantenemos slidesPerView
+            // Ajustar para mostrar 3 servicios en pantallas grandes
             992: {
                 slidesPerView: 3,
-                spaceBetween: 0 // Importante para coverflow
+                spaceBetween: 30
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
             }
         },
     });
@@ -303,8 +310,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const observerOptions = {
         root: null,
-        rootMargin: "0px 0px -50px 0px", // Margen negativo para activar un poco antes
-        threshold: 0.1 // 10% de visibilidad para activar
+        rootMargin: "0px 0px 100px 0px", // Trigger 100px before to avoid pop-in feel
+        threshold: 0.1 
     };
 
     const lazyObserver = new IntersectionObserver((entries, observer) => {
@@ -594,4 +601,92 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+});
+
+// Lógica del cursor profesional con sombra de glassmorphism
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.cursor-follower');
+
+    if (cursor) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        // Hint al navegador para compositar el cursor en la GPU
+        cursor.style.willChange = 'transform';
+
+        // Escuchar el mouse de forma pasiva (no bloquea el hilo de renderizado)
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }, { passive: true });
+
+        // --- Pool de partículas de estela (reutiliza nodos DOM en vez de crearlos) ---
+        const POOL_SIZE = 12; // Máximo de partículas activas al mismo tiempo
+        const trailPool = [];
+
+        for (let i = 0; i < POOL_SIZE; i++) {
+            const el = document.createElement('div');
+            el.className = 'cursor-trail';
+            el.style.opacity = '0';    // Ocultas por defecto
+            el.style.transform = 'translate(-50%, -50%) scale(0)';
+            document.body.appendChild(el);
+            trailPool.push({ el, active: false, timer: 0 });
+        }
+
+        let poolIndex = 0;  // Puntero circular al siguiente elemento del pool
+        let trailCounter = 0;
+
+        function getFromPool() {
+            const node = trailPool[poolIndex];
+            poolIndex = (poolIndex + 1) % POOL_SIZE;
+            return node;
+        }
+
+        function spawnTrail(x, y) {
+            const node = getFromPool();
+            node.el.style.left = `${x}px`;
+            node.el.style.top = `${y}px`;
+            node.el.style.opacity = '1';
+            node.el.style.transform = 'translate(-50%, -50%) scale(1)';
+
+            // Usar transición CSS para la animación de desaparición (no setTimeout)
+            // La clase cursor-trail ya debe tener transition en CSS
+            requestAnimationFrame(() => {
+                node.el.style.opacity = '0';
+                node.el.style.transform = 'translate(-50%, -50%) scale(0)';
+            });
+        }
+
+        // Loop único de animación del cursor
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+
+            cursorX += dx * 0.25;
+            cursorY += dy * 0.25;
+
+            // Usar transform en vez de left/top para evitar reflows
+            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
+            // Spawnar estela solo cuando hay movimiento real
+            trailCounter++;
+            if (trailCounter % 3 === 0 && (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5)) {
+                spawnTrail(cursorX, cursorY);
+            }
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Efectos de hover para el cursor
+        const hoverTags = 'a, button, .ui-switch, .swiper-button-next, .swiper-button-prev, .project-info';
+        const interactiveElements = document.querySelectorAll(hoverTags);
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'), { passive: true });
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'), { passive: true });
+        });
+    }
 });
