@@ -222,6 +222,14 @@
             }
         })();
     </script>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
     <script>

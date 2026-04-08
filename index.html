@@ -32,6 +32,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Scroll suave de lenis -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 
 <body class="loader-active">
@@ -297,8 +305,8 @@
                                         src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png"
                                         alt="visualización de diseño web" class="lazy-load" loading="lazy"></div>
                                 <div class="cube-face back"><img
-                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg"
-                                        alt="visualización de seo" class="lazy-load" loading="lazy"></div>
+                                        src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg"
+                                        alt="visualización de branding" class="lazy-load" loading="lazy"></div>
                                 <div class="cube-face left"><img
                                         src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775603892/b43684da-e102-40e5-9700-f102bb4e4d23.png"
                                         alt="visualización de dashboard BLAJ" class="lazy-load" loading="lazy"></div>
@@ -332,13 +340,12 @@
                                 </div>
                             </div>
                             <div class="swiper-slide portfolio-item">
-                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg"
-                                    alt="proyecto 2 - sitio web barberia" class="lazy-load" loading="lazy">
+                                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775603892/b43684da-e102-40e5-9700-f102bb4e4d23.png"
+                                    alt="proyecto 2 - Greenscape paisajismo" class="lazy-load" loading="lazy">
                                 <div class="project-info">
-                                    <h3>Barbería Templum: estilo y tradición</h3>
-                                    <p>Capturamos la esencia de la marca y facilitamos la agenda de citas, mejorando la
-                                        experiencia del cliente y la operación del negocio.</p>
-                                    <a href="templum.html" class="view-project-link btn-shine" target="_blank">
+                                    <h3>Greenscape: paisajismo de lujo</h3>
+                                    <p>Transformamos la presencia digital de una empresa de paisajismo premium para atraer clientes de alto valor con una experiencia web que impone autoridad y estética.</p>
+                                    <a href="greenscape.html" class="view-project-link btn-shine" target="_blank">
                                         <span>Conocer más</span>
                                     </a>
                                 </div>
@@ -396,17 +403,7 @@
                                 <p class="testimonial-author">- Sandra M., creadora de "Macramé creativo"</p>
                             </div>
 
-                            <div class="swiper-slide testimonial-card glassmorphism-card">
-                                <div class="testimonial-avatar">
-                                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845815/t2_bvw3w5.jpg"
-                                        alt="avatar de cliente de barbería" class="lazy-load" loading="lazy">
-                                </div>
-                                <p class="testimonial-text">"La verdad, antes perdía muchísimo tiempo contestando
-                                    whatsapps para agendar. Con la página nueva, los clientes reservan directo y yo me
-                                    dedico a cortar sin interrupciones. El diseño quedó brutal, muy acorde a la vibra de
-                                    la barbería."</p>
-                                <p class="testimonial-author">- David R., fundador de "Barbería templum"</p>
-                            </div>
+
 
                             <div class="swiper-slide testimonial-card glassmorphism-card">
                                 <div class="testimonial-avatar">

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLAJ | Macramé</title>
+    <title>BLAJ | Macramé creativo</title>
+    <meta name="description" content="Cómo convertimos una pasión artesanal en un negocio digital escalable. Caso de estudio de BLAJ para Macramé creativo.">
     <link rel="icon" href="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845811/logo_gy8n31.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -69,6 +70,7 @@
             margin-top: 60px;
             border: 1px solid var(--current-border-color);
             max-width: 100%;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .story-section {
@@ -79,7 +81,7 @@
             display: flex;
             align-items: center;
             gap: 80px;
-            margin-bottom: 120px;
+            margin-bottom: 150px;
         }
 
         .story-img-container {
@@ -94,6 +96,7 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
         }
 
         .story-text {
@@ -103,6 +106,7 @@
         .story-text h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
+            line-height: 1.2;
         }
 
         .story-text p {
@@ -112,7 +116,7 @@
             font-weight: 300;
         }
 
-        /* Live Experience Banner - Optimized for all modes */
+        /* Live Experience Banner */
         .live-project-banner {
             position: relative;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg');
@@ -137,7 +141,6 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Define button explicitly to avoid global overrides */
         .btn-project-action {
             display: inline-block;
             background: var(--project-accent);
@@ -153,7 +156,7 @@
         }
 
         .btn-project-action:hover {
-            background: #0066cc; /* Slightly darker blue */
+            background: #0066cc;
             color: #ffffff !important;
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0, 132, 255, 0.6);
@@ -199,6 +202,10 @@
                 flex-direction: column !important;
                 text-align: center;
                 gap: 40px;
+                margin-bottom: 100px;
+            }
+            .story-text h2 {
+                font-size: 2rem;
             }
             .live-project-banner {
                 margin: 20px 10px;
@@ -207,7 +214,6 @@
         }
     </style>
     <script>
-        // Immediate theme sync to prevent flash
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -215,11 +221,17 @@
             }
         })();
     </script>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
-
     <script>
-        // Apply classes to body
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -229,7 +241,7 @@
         })();
     </script>
 
-    <!-- Navbar Custom -->
+    <!-- Navbar -->
     <nav class="navbar-custom">
         <div class="container-nav">
             <div class="d-flex align-items-center gap-4">
@@ -263,45 +275,116 @@
     </nav>
 
     <main>
+        <!-- Hero -->
         <section class="project-hero-section lazy-load">
             <div class="container">
-                <span class="project-category">Infoproductos & Ecommerce</span>
-                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">Macramé Creativo: de pasión a negocio.</h1>
-                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Cómo convertimos un talento artesanal en una fuente de ingresos pasivos a través de embudos de alta conversión e identidad visual cautivadora.</p>
-                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg" 
-                     alt="Macramé portada" class="main-hero-img">
+                <span class="project-category">Infoproductos & economía creativa</span>
+                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">De pasión artesanal a negocio digital.</h1>
+                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Transformamos el talento de una creadora de macramé en un ecosistema de ventas automatizado que genera ingresos pasivos mientras ella sigue haciendo lo que ama.</p>
+                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg"
+                     alt="Macramé creativo portada" class="main-hero-img">
             </div>
         </section>
 
+        <!-- Storytelling -->
         <section class="story-section">
             <div class="container">
+
+                <!-- 1 - Imagen izquierda -->
                 <div class="story-row lazy-load">
                     <div class="story-img-container">
-                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845813/macramecreativo_agftq2.jpg" alt="Macramé detalle">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775671983/db0a789e-687e-4622-8df6-01888135b4df.png" alt="Identidad visual de Macramé creativo">
                     </div>
                     <div class="story-text">
-                        <h2>Embudos que convierten</h2>
-                        <p>Diseñamos una experiencia de compra fluida enfocada en la transformación del cliente, invitándole a formar parte de una comunidad de creadores exitosos.</p>
+                        <h2>Una marca que huele a hilo y a libertad</h2>
+                        <p>El primer paso fue darle nombre a lo que ya existía en su corazón. Construimos una identidad visual cálida, artesanal y aspiracional que conectara emocionalmente con mujeres que quieren aprender, crear y ganar dinero con sus manos.</p>
                     </div>
                 </div>
+
+                <!-- 2 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672002/a84b2f62-7502-4566-ac0f-f35cda2adc86.png" alt="Página de ventas de Macramé creativo">
+                    </div>
+                    <div class="story-text">
+                        <h2>Una landing page que vende mientras duerme</h2>
+                        <p>Diseñamos una página de ventas de alto impacto con copywriting orientado a la transformación del cliente. Cada sección responde a una objeción, cada párrafo acerca al clic. El resultado: una máquina de conversión disponible las 24 horas.</p>
+                    </div>
+                </div>
+
+                <!-- 3 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672030/4ca3b4eb-82d3-488e-be5b-c41fc5ff70ee.png" alt="Catálogo de cursos de Macramé creativo">
+                    </div>
+                    <div class="story-text">
+                        <h2>El catálogo que hace crecer el ticket promedio</h2>
+                        <p>Organizamos su oferta en niveles —básico, intermedio, avanzado— para que cada alumna encuentre su punto de entrada y avance naturalmente hacia productos de mayor valor. Más claridad para la clienta, más ingresos para la creadora.</p>
+                    </div>
+                </div>
+
+                <!-- 4 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672055/0fc2d31f-3857-4812-9584-05a7ea54e1f5.png" alt="Página de detalle de curso de macramé">
+                    </div>
+                    <div class="story-text">
+                        <h2>Cada curso, una experiencia completa</h2>
+                        <p>Más que una ficha de producto, diseñamos páginas de detalle que cuentan la historia del aprendizaje: qué vas a lograr, qué materiales necesitas, qué dicen las alumnas. La duda no tiene espacio para quedarse.</p>
+                    </div>
+                </div>
+
+                <!-- 5 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672078/24e2a483-d551-4c18-892d-3454fb69ff87.png" alt="Sección de testimonios de Macramé creativo">
+                    </div>
+                    <div class="story-text">
+                        <h2>La prueba social como motor de ventas</h2>
+                        <p>Integramos un sistema de testimonios que muestra, en palabras reales, la transformación de quienes ya tomaron el curso. Porque no hay mejor argumento de venta que una alumna feliz mostrando lo que hizo con sus propias manos.</p>
+                    </div>
+                </div>
+
+                <!-- 6 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672097/dd6d10b9-9b78-4d9f-ab64-44d855cdcd91.png" alt="Vista móvil de Macramé creativo">
+                    </div>
+                    <div class="story-text">
+                        <h2>Diseñado para el scroll del celular</h2>
+                        <p>Más del 70% de su audiencia navega desde el teléfono. Optimizamos cada sección para que la experiencia sea tan fluida en móvil como en escritorio: tipografías legibles, botones accesibles y carga ultrarrápida.</p>
+                    </div>
+                </div>
+
+                <!-- 7 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672115/99f4ffc0-e6b0-42ad-a0be-ca1fb2f373bd.png" alt="Resultado final de Macramé creativo">
+                    </div>
+                    <div class="story-text">
+                        <h2>El resultado: libertad con ingresos reales</h2>
+                        <p>Hoy, Macramé creativo es un negocio que funciona con o sin Sandra presente. Sus cursos se venden, sus alumnas crecen y ella tiene el tiempo de seguir creando. Eso es lo que construimos: no solo una web, sino una fuente de vida.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Section 1: Live Experience -->
+        <!-- Experiencia en vivo -->
         <section class="live-project-banner lazy-load">
             <div class="container">
                 <span class="section-tag">Experiencia en vivo</span>
-                <h2 class="text-white mb-4" style="font-size: 3rem; font-weight: 800;">Mira el resultado final.</h2>
-                <a href="#" class="btn-project-action" target="_blank">Visitar proyecto</a>
+                <h2 class="mb-4" style="font-size: 3rem; font-weight: 800;">Mira el resultado final.</h2>
+                <a href="https://macramecreativo.netlify.app/" class="btn-project-action" target="_blank">Visitar proyecto</a>
             </div>
         </section>
 
-        <!-- Section 2: Contact CTA -->
+        <!-- CTA Contacto -->
         <section class="contact-cta-section lazy-load">
             <div class="container">
                 <span class="section-tag">Próximo paso</span>
-                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Listo/a para elevar tu marca?</h2>
-                <p class="mb-5 mx-auto" style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">Transformamos tu visión en una ventaja competitiva real. Habla con nosotros y comencemos a construir tu legado digital.</p>
+                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Listo/a para convertir tu talento en un negocio?</h2>
+                <p class="mb-5 mx-auto" style="max-width: 620px; font-size: 1.2rem; opacity: 0.8;">Tu conocimiento tiene valor. Nosotros construimos el sistema para que ese valor se traduzca en ingresos reales y sostenibles.</p>
                 <a href="https://wa.link/khsws3" class="btn-project-action" style="padding: 18px 60px;" target="_blank">Contactar a BLAJ</a>
             </div>
         </section>

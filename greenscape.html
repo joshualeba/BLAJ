@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLAJ | Templum</title>
+    <title>BLAJ | Greenscape: paisajismo de lujo</title>
+    <meta name="description" content="Cómo transformamos la presencia digital de una empresa de paisajismo premium en un ecosistema de captación de clientes de alto valor. Caso de estudio BLAJ.">
     <link rel="icon" href="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845811/logo_gy8n31.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="css/index.css">
     <style>
         :root {
-            --project-accent: #0084FF;
+            --project-accent: #2E7D32;
         }
         body {
             font-family: 'Poppins', sans-serif;
@@ -69,6 +70,7 @@
             margin-top: 60px;
             border: 1px solid var(--current-border-color);
             max-width: 100%;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .story-section {
@@ -79,7 +81,7 @@
             display: flex;
             align-items: center;
             gap: 80px;
-            margin-bottom: 120px;
+            margin-bottom: 150px;
         }
 
         .story-img-container {
@@ -94,6 +96,7 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
         }
 
         .story-text {
@@ -103,6 +106,7 @@
         .story-text h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
+            line-height: 1.2;
         }
 
         .story-text p {
@@ -112,10 +116,10 @@
             font-weight: 300;
         }
 
-        /* Live Experience Banner - Optimized for all modes */
+        /* Live Experience Banner */
         .live-project-banner {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg');
+            background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775603892/b43684da-e102-40e5-9700-f102bb4e4d23.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -137,7 +141,6 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Define button explicitly to avoid global overrides */
         .btn-project-action {
             display: inline-block;
             background: var(--project-accent);
@@ -149,14 +152,14 @@
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 0 10px 30px rgba(0, 132, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.4);
         }
 
         .btn-project-action:hover {
-            background: #0066cc; /* Slightly darker blue */
+            background: #1b5e20;
             color: #ffffff !important;
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 132, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.6);
             text-decoration: none;
         }
 
@@ -199,6 +202,10 @@
                 flex-direction: column !important;
                 text-align: center;
                 gap: 40px;
+                margin-bottom: 100px;
+            }
+            .story-text h2 {
+                font-size: 2rem;
             }
             .live-project-banner {
                 margin: 20px 10px;
@@ -207,7 +214,6 @@
         }
     </style>
     <script>
-        // Immediate theme sync to prevent flash
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -215,11 +221,17 @@
             }
         })();
     </script>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
-
     <script>
-        // Apply classes to body
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -229,7 +241,7 @@
         })();
     </script>
 
-    <!-- Navbar Custom -->
+    <!-- Navbar -->
     <nav class="navbar-custom">
         <div class="container-nav">
             <div class="d-flex align-items-center gap-4">
@@ -263,31 +275,91 @@
     </nav>
 
     <main>
+        <!-- Hero -->
         <section class="project-hero-section lazy-load">
             <div class="container">
-                <span class="project-category">Branding & Lifestyle</span>
-                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">Templum: estilo y tradición.</h1>
-                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Redefiniendo la experiencia de la barbería clásica a través de un ecosistema digital que proyecta una imagen premium única.</p>
-                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg" 
-                     alt="Templum portada" class="main-hero-img">
+                <span class="project-category">Paisajismo & diseño de exteriores</span>
+                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">Greenscape: donde la naturaleza se convierte en arte.</h1>
+                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Transformamos la presencia digital de una empresa de paisajismo premium para que cada visita al sitio sintiera lo mismo que entrar a uno de sus jardines: una experiencia de alta gama que atrae al cliente que sabe lo que quiere.</p>
+                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775603892/b43684da-e102-40e5-9700-f102bb4e4d23.png"
+                     alt="Greenscape portada" class="main-hero-img">
             </div>
         </section>
 
+        <!-- Storytelling -->
         <section class="story-section">
             <div class="container">
+
+                <!-- 1 - Imagen izquierda -->
                 <div class="story-row lazy-load">
                     <div class="story-img-container">
-                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg" alt="Templum detalle">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674520/df66d232-602d-4cf4-958e-fd597a50bb1b.png" alt="Hero section de Greenscape con propuesta de valor">
                     </div>
                     <div class="story-text">
-                        <h2>Experiencia de autor</h2>
-                        <p>Creamos una identity digital que captura la esencia artesanal de Templum. Integramos sistemas que facilitan la conexión con los clientes, convirtiendo cada cita en una experiencia de lujo.</p>
+                        <h2>Un hero que vende antes de que el cliente hable</h2>
+                        <p>La primera pantalla lo dice todo: una propuesta de valor clara, una imagen que inspira y un llamado a la acción que convierte. Cada palabra fue elegida para hablarle directamente al dueño de casa que busca exclusividad, no solo jardinería.</p>
                     </div>
                 </div>
+
+                <!-- 2 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674536/7e2b5570-5434-4854-be91-1cef06c41c4c.png" alt="Sección de servicios de paisajismo Greenscape">
+                    </div>
+                    <div class="story-text">
+                        <h2>Servicios que se perciben como lo que cuestan</h2>
+                        <p>Organizamos la oferta de Greenscape en categorías que comunican rigor técnico y sensibilidad estética a la vez. El objetivo era que quien llegara al sitio entendiera que esto no es jardinería de fin de semana: es diseño de espacios a nivel profesional.</p>
+                    </div>
+                </div>
+
+                <!-- 3 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674583/0cac75b3-5132-402e-8fd9-946159d8018d.png" alt="Portafolio de proyectos realizados por Greenscape">
+                    </div>
+                    <div class="story-text">
+                        <h2>El portafolio que hace que el cliente ya quiera contratar</h2>
+                        <p>Diseñamos una galería de proyectos de alto impacto visual: antes de llegar al formulario de contacto, el prospecto ya vio con sus propios ojos el nivel del trabajo. En paisajismo premium, ver es creer. Y creer es comprar.</p>
+                    </div>
+                </div>
+
+                <!-- 4 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674565/8410f0da-610e-4260-8b0b-3acec3961d98.png" alt="Sección de proceso de trabajo de Greenscape">
+                    </div>
+                    <div class="story-text">
+                        <h2>Transparencia que genera confianza antes del primer contacto</h2>
+                        <p>Uno de los mayores miedos del cliente de alto valor es no saber con qué se va a encontrar. Estructuramos el proceso de trabajo de Greenscape —consulta, diseño, ejecución, entrega— para que el prospecto llegue al formulario informado, seguro y listo para comprometerse.</p>
+                    </div>
+                </div>
+
+                <!-- 5 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674615/f3f5efb6-ce84-4a31-a482-552d34b62405.png" alt="Sección de testimonios y casos de éxito de Greenscape">
+                    </div>
+                    <div class="story-text">
+                        <h2>La voz de los clientes que ya vivieron la experiencia</h2>
+                        <p>Integramos testimonios reales que no solo elogian el resultado estético, sino que hablan del proceso: puntualidad, comunicación, cuidado por el detalle. En un mercado de servicios premium, la reputación es el activo más valioso. Aquí se construye en cada visita.</p>
+                    </div>
+                </div>
+
+                <!-- 6 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775674656/4703203d-2d35-4f06-8290-ee7bc7e1e437.png" alt="Formulario de contacto y CTA final de Greenscape">
+                    </div>
+                    <div class="story-text">
+                        <h2>El cierre que convierte el interés en una cotización real</h2>
+                        <p>El formulario de contacto no es solo un campo de texto: es una invitación con contexto, tono y diseño alineados con el nivel del servicio. El resultado es una tasa de conversión muy por encima del promedio del sector, porque el formulario se siente como la primera interacción con el equipo, no un trámite.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Section 1: Live Experience -->
+        <!-- Experiencia en vivo -->
         <section class="live-project-banner lazy-load">
             <div class="container">
                 <span class="section-tag">Experiencia en vivo</span>
@@ -296,12 +368,12 @@
             </div>
         </section>
 
-        <!-- Section 2: Contact CTA -->
+        <!-- CTA Contacto -->
         <section class="contact-cta-section lazy-load">
             <div class="container">
                 <span class="section-tag">Próximo paso</span>
-                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Listo/a para elevar tu marca?</h2>
-                <p class="mb-5 mx-auto" style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">Transformamos tu visión en una ventaja competitiva real. Habla con nosotros y comencemos a construir tu legado digital.</p>
+                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Tu empresa de servicios merece una presencia a la altura?</h2>
+                <p class="mb-5 mx-auto" style="max-width: 620px; font-size: 1.2rem; opacity: 0.8;">Si tu trabajo habla por sí solo, tu sitio web también debería hacerlo. Nosotros construimos la plataforma para que tu expertise se traduzca en clientes de alto valor.</p>
                 <a href="https://wa.link/khsws3" class="btn-project-action" style="padding: 18px 60px;" target="_blank">Contactar a BLAJ</a>
             </div>
         </section>

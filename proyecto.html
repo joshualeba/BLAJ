@@ -98,13 +98,21 @@
             font-weight: 500;
         }
     </style>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
     
     <div id="page-wrapper">
         <section class="project-hero">
             <div class="container text-start">
-                <a href="index.html#portfolio" class="back-link">
+                <a href="index.html" class="back-link">
                     <i class="fas fa-arrow-left"></i> Volver al portafolio
                 </a>
                 
@@ -158,17 +166,7 @@
                     { icon: "fas fa-stopwatch", title: "Gatillos mentales", desc: "Implementación de urgencia, prueba social y garantías para maximizar el ROI." }
                 ]
             },
-            templum: {
-                title: "Barbería Templum",
-                intro: "Digitalizamos la experiencia del cliente para una barbería de autor, facilitando la agenda de citas y capturando la esencia profesional y moderna de la marca.",
-                image: "https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845808/barberiatemplum_t9ukkw.jpg",
-                url: "https://barberiatemplum.netlify.app/",
-                details: [
-                    { icon: "fas fa-palette", title: "Diseño de marca única", desc: "Identidad moderna que diferencia a Templum en un mercado saturado." },
-                    { icon: "fas fa-calendar-check", title: "Agenda automatizada", desc: "Sistema integrado para que los clientes reserven sin fricciones, reduciendo carga administrativa." },
-                    { icon: "fas fa-gem", title: "Estrategia Premium", desc: "Posicionamiento de servicios especializados para justificar precios de alta gama." }
-                ]
-            },
+
             krosa: {
                 title: "Krosa Construcción Industrial",
                 intro: "Cómo transformamos la identidad digital de una constructora líder para proyectar la solvencia y el rigor técnico que exigen las grandes licitaciones corporativas y gubernamentales.",

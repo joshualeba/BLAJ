@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLAJ | SHT</title>
+    <title>BLAJ | SHT soluciones hidráulicas</title>
+    <meta name="description" content="Cómo modernizamos la presencia digital de una empresa con 50 años de trayectoria en soluciones hidráulicas industriales. Caso de estudio BLAJ.">
     <link rel="icon" href="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845811/logo_gy8n31.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -69,6 +70,7 @@
             margin-top: 60px;
             border: 1px solid var(--current-border-color);
             max-width: 100%;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .story-section {
@@ -79,7 +81,7 @@
             display: flex;
             align-items: center;
             gap: 80px;
-            margin-bottom: 120px;
+            margin-bottom: 150px;
         }
 
         .story-img-container {
@@ -94,6 +96,7 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
         }
 
         .story-text {
@@ -103,6 +106,7 @@
         .story-text h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
+            line-height: 1.2;
         }
 
         .story-text p {
@@ -112,10 +116,10 @@
             font-weight: 300;
         }
 
-        /* Live Experience Banner - Optimized for all modes */
+        /* Live Experience Banner */
         .live-project-banner {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png');
+            background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -137,7 +141,6 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Define button explicitly to avoid global overrides */
         .btn-project-action {
             display: inline-block;
             background: var(--project-accent);
@@ -153,7 +156,7 @@
         }
 
         .btn-project-action:hover {
-            background: #0066cc; /* Slightly darker blue */
+            background: #0066cc;
             color: #ffffff !important;
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0, 132, 255, 0.6);
@@ -199,6 +202,10 @@
                 flex-direction: column !important;
                 text-align: center;
                 gap: 40px;
+                margin-bottom: 100px;
+            }
+            .story-text h2 {
+                font-size: 2rem;
             }
             .live-project-banner {
                 margin: 20px 10px;
@@ -207,7 +214,6 @@
         }
     </style>
     <script>
-        // Immediate theme sync to prevent flash
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -215,10 +221,17 @@
             }
         })();
     </script>
+    <script>
+        if (window.history.replaceState) {
+            let cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search;
+            if (window.location.pathname.endsWith('.html') || window.location.hash) {
+                window.history.replaceState(null, '', cleanUrl);
+            }
+        }
+    </script>
 </head>
 <body class="dark-mode">
     <script>
-        // Apply classes to body
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
@@ -228,7 +241,7 @@
         })();
     </script>
 
-    <!-- Navbar Custom -->
+    <!-- Navbar -->
     <nav class="navbar-custom">
         <div class="container-nav">
             <div class="d-flex align-items-center gap-4">
@@ -262,45 +275,83 @@
     </nav>
 
     <main>
+        <!-- Hero -->
         <section class="project-hero-section lazy-load">
             <div class="container">
-                <span class="project-category">Ingeniería & Tradición</span>
-                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">SHT: modernizando un legado.</h1>
-                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Transformamos la presencia digital de una institución con 50 años de experiencia técnica para unir su historia con la eficiencia de la industria 4.0.</p>
-                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png" 
-                     alt="SHT portada" class="main-hero-img">
+                <span class="project-category">Industria & Soluciones hidráulicas</span>
+                <h1 class="project-title-premium" style="font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -3px;">SHT: 50 años de ingeniería, ahora en digital.</h1>
+                <p class="project-intro mx-auto" style="max-width: 850px; font-size: 1.3rem; opacity: 0.9; font-weight: 300;">Modernizamos la presencia digital de una empresa con medio siglo de experiencia en soluciones hidráulicas, para que su trayectoria y capacidad técnica hablen por sí solas ante cada nuevo cliente.</p>
+                <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png"
+                     alt="SHT soluciones hidráulicas portada" class="main-hero-img">
             </div>
         </section>
 
+        <!-- Storytelling -->
         <section class="story-section">
             <div class="container">
+
+                <!-- 1 - Imagen izquierda -->
                 <div class="story-row lazy-load">
                     <div class="story-img-container">
-                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775602793/68722d6b-1c36-45e7-b32f-0b1e5d891a60.png" alt="SHT detalle">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672897/862332f1-2eaf-4a19-b987-64c646ef6391.png" alt="Catálogo de productos hidráulicos SHT">
                     </div>
                     <div class="story-text">
-                        <h2>Ingeniería de alta precisión</h2>
-                        <p>Diseñamos cada sección para reflejar la exactitud que SHT aporta a sus soluciones hidráulicas. Un sitio web que no solo informa, sino que genera confianza inmediata a través de una estética limpia y técnica.</p>
+                        <h2>Un catálogo técnico que genera cotizaciones</h2>
+                        <p>Estructuramos la amplia gama de productos hidráulicos de SHT en un catálogo digital claro y navegable. Cada solución —bombas, cilindros, válvulas, sistemas de potencia— está presentada con la información técnica que un ingeniero de compras necesita para tomar una decisión con confianza.</p>
                     </div>
                 </div>
+
+                <!-- 2 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672951/02d443c7-9a5c-4ba2-8e24-3712b3c74aa9.png" alt="Sección de servicios SHT">
+                    </div>
+                    <div class="story-text">
+                        <h2>Servicios especializados con presentación de peso</h2>
+                        <p>Más allá de vender piezas, SHT ofrece diagnóstico, mantenimiento preventivo e instalación de sistemas hidráulicos. Diseñamos una sección de servicios que comunica esta profundidad técnica con jerarquía visual y lenguaje que resuena con el tomador de decisión industrial.</p>
+                    </div>
+                </div>
+
+                <!-- 3 - Imagen izquierda -->
+                <div class="story-row lazy-load">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775672989/802585cc-31c2-412e-a25d-935c5131f4c3.png" alt="Sección nosotros SHT - historia y trayectoria">
+                    </div>
+                    <div class="story-text">
+                        <h2>50 años de historia como ventaja competitiva</h2>
+                        <p>En el mundo industrial, la trayectoria es el activo más valioso. Transformamos esa historia —fundada en experiencia real, en clientes que vuelven, en soluciones que no fallan— en un relato digital que genera confianza antes de que llegue la primera cotización.</p>
+                    </div>
+                </div>
+
+                <!-- 4 - Imagen derecha -->
+                <div class="story-row lazy-load" style="flex-direction: row-reverse;">
+                    <div class="story-img-container">
+                        <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/q_auto/f_auto/v1775673010/b5ad50b3-b1d7-4856-a926-6c1014c8c19d.png" alt="Vista móvil y contacto SHT">
+                    </div>
+                    <div class="story-text">
+                        <h2>Accesible para quien opera en campo</h2>
+                        <p>Un supervisor de planta, un jefe de mantenimiento: no siempre están frente a una computadora. Optimizamos SHT para que cualquier técnico en campo pueda consultar especificaciones, ubicar un producto o solicitar soporte desde el teléfono, sin fricción.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Section 1: Live Experience -->
+        <!-- Experiencia en vivo -->
         <section class="live-project-banner lazy-load">
             <div class="container">
                 <span class="section-tag">Experiencia en vivo</span>
                 <h2 class="mb-4" style="font-size: 3rem; font-weight: 800;">Mira el resultado final.</h2>
-                <a href="#" class="btn-project-action" target="_blank">Visitar proyecto</a>
+                <a href="https://shtijerina.com/" class="btn-project-action" target="_blank">Visitar proyecto</a>
             </div>
         </section>
 
-        <!-- Section 2: Contact CTA -->
+        <!-- CTA Contacto -->
         <section class="contact-cta-section lazy-load">
             <div class="container">
                 <span class="section-tag">Próximo paso</span>
-                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Listo/a para elevar tu marca?</h2>
-                <p class="mb-5 mx-auto" style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">Transformamos tu visión en una ventaja competitiva real. Habla con nosotros y comencemos a construir tu legado digital.</p>
+                <h2 class="mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;">¿Tu empresa merece una presencia a la altura de su experiencia?</h2>
+                <p class="mb-5 mx-auto" style="max-width: 640px; font-size: 1.2rem; opacity: 0.8;">Si tu negocio tiene años de trayectoria pero su presencia digital no lo refleja, hay una brecha que le está costando clientes. Nosotros la cerramos.</p>
                 <a href="https://wa.link/khsws3" class="btn-project-action" style="padding: 18px 60px;" target="_blank">Contactar a BLAJ</a>
             </div>
         </section>
