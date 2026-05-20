@@ -1525,17 +1525,19 @@ body.dark-mode .btn-primary-custom:hover {
 /* -- SecciÃ³n: Testimonios (Testimonials) -- */
 .testimonial-card {
     text-align: center;
-    padding: 40px 20px;
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     transition: transform 0.3s ease;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .testimonial-avatar {
@@ -1555,16 +1557,20 @@ body.dark-mode .btn-primary-custom:hover {
 }
 
 .testimonial-text {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 15px;
     color: var(--current-text-color);
 }
 
 .testimonial-author {
     font-weight: 600;
     color: var(--current-btn-primary-bg);
-    font-size: 1.1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 /* -- SecciÃ³n: Contacto (Contact Form) -- */
@@ -2932,3 +2938,159 @@ iframe {
     .benefits-grid { grid-template-columns: 1fr; }
 }
 
+/* --- ESTILOS OPCIÓN 2 (Cortina) - Comentados --- */
+/*
+#typed-text {
+    display: inline-block;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    vertical-align: bottom;
+}
+#typed-text.slide-out {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+#typed-text.slide-in {
+    animation: textSlideIn 0.5s ease-in-out forwards;
+}
+@keyframes textSlideIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+*/
+
+/* --- ESTILOS OPCIÓN 3 (Fade + Blur Premium) - Comentados --- */
+/*
+#typed-text {
+    display: inline-block;
+    vertical-align: bottom;
+    will-change: transform, opacity, filter;
+}
+
+#typed-text.premium-reveal-out {
+    animation: premiumOut 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#typed-text.premium-reveal-in {
+    animation: premiumIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes premiumOut {
+    0% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    100% { opacity: 0; transform: translateY(-10px); filter: blur(8px); }
+}
+
+@keyframes premiumIn {
+    0% { opacity: 0; transform: translateY(10px); filter: blur(8px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+*/
+
+/* --- ESTILOS OPCIÓN 4 (Typed Súper Rápido + Borrador Izq a Der) - Comentados --- */
+/*
+#typed-text.custom-typed-cursor {
+    display: inline;
+    transition: none;
+    filter: none;
+    transform: none;
+    animation: none;
+    border-right: 2px solid var(--current-text-color);
+    padding-right: 4px;
+    animation: borderBlink 1s infinite;
+    color: var(--current-btn-primary-bg);
+}
+
+@keyframes borderBlink {
+    0%, 100% { border-color: var(--current-text-color); }
+    50% { border-color: transparent; }
+}
+*/
+
+/* --- ESTILOS OPCIÓN 5 (Elegante Typed + Gradiente) --- */
+#typed-text.elegant-typed {
+    display: inline;
+    background: linear-gradient(135deg, #0d6efd, #0dcaf0); /* Colores profesionales (Azul a Celeste) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-right: none;
+}
+
+/* Modo oscuro adaptado para el gradiente */
+[data-theme="dark"] #typed-text.elegant-typed {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.elegant-cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: linear-gradient(to bottom, #0d6efd, #0dcaf0);
+    vertical-align: text-bottom;
+    margin-left: 6px;
+    border-radius: 2px;
+    animation: blinkElegant 1s step-start infinite;
+}
+
+[data-theme="dark"] .elegant-cursor {
+    background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+}
+
+@keyframes blinkElegant {
+    50% { opacity: 0; }
+}
+
+
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid var(--current-border-color);
+    color: var(--current-text-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+.lang-flag {
+    width: 20px;
+    border-radius: 2px;
+}
+.lang-btn:hover {
+    background: var(--current-card-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ocultar barra superior de Google Translate y prevenir desbordamiento */
+body { top: 0 !important; }
+.goog-te-banner-frame { display: none !important; }
+h1, h2, h3, h4, h5, h6, p, a, span, button, li, div {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* --- Arreglos de Lenis para el Scrollbar nativo --- */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

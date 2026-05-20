@@ -109,6 +109,19 @@
 </head>
 <body class="dark-mode">
     
+    
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.2); padding: 10px 15px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+        <label class="ui-switch">
+            <input type="checkbox" id="theme-toggle">
+            <div class="slider"><div class="circle"></div></div>
+        </label>
+        <div class="lang-toggle-wrapper">
+            <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguageCustom()" aria-label="Cambiar idioma">
+                <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="ES" class="lang-flag">
+                <span id="lang-text">ES</span>
+            </button>
+        </div>
+    </div>
     <div id="page-wrapper">
         <section class="project-hero">
             <div class="container text-start">
@@ -247,5 +260,6 @@
             window.location.href = 'index.html';
         }
     </script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>

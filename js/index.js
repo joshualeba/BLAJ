@@ -175,8 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typed.js effect en el hero
+// --- OPCION 1: Typed.js (Máquina de escribir) ---
+/*
 document.addEventListener("DOMContentLoaded", function () {
+    // Requiere importar typed.js en index.html
     const options = {
         strings: ["convertir visitantes en clientes", "atraer a tu cliente ideal", "posicionamiento que genera ventas", "estrategias de crecimiento digital"],
         typeSpeed: 70,
@@ -186,6 +188,191 @@ document.addEventListener("DOMContentLoaded", function () {
         cursorChar: '|',
     };
     const typed = new Typed('#typed-text', options);
+});
+*/
+
+// --- OPCION 2: Efecto Cortina (Slide Up/Down) ---
+/*
+document.addEventListener("DOMContentLoaded", function () {
+    const strings = [
+        "convertir visitantes en clientes",
+        "atraer a tu cliente ideal",
+        "posicionamiento que genera ventas",
+        "estrategias de crecimiento digital"
+    ];
+    const textElement = document.getElementById('typed-text');
+    if (!textElement) return;
+
+    let currentIndex = 0;
+    textElement.textContent = strings[currentIndex];
+
+    setInterval(() => {
+        textElement.classList.add('slide-out');
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % strings.length;
+            textElement.textContent = strings[currentIndex];
+            textElement.classList.remove('slide-out');
+            textElement.classList.add('slide-in');
+            setTimeout(() => {
+                textElement.classList.remove('slide-in');
+            }, 500);
+        }, 500);
+    }, 3000);
+});
+*/
+
+// --- OPCION 3: Efecto Fade con Blur (Profesional/Premium) ---
+/*
+document.addEventListener("DOMContentLoaded", function () {
+    const strings = [
+        "convertir visitantes en clientes",
+        "atraer a tu cliente ideal",
+        "posicionamiento que genera ventas",
+        "estrategias de crecimiento digital"
+    ];
+    const textElement = document.getElementById('typed-text');
+    if (!textElement) return;
+
+    let currentIndex = 0;
+    textElement.textContent = strings[currentIndex];
+    
+    // Configuración de la rotación
+    setInterval(() => {
+        // 1. Iniciar animación de salida (difuminar hacia arriba)
+        textElement.classList.remove('premium-reveal-in');
+        textElement.classList.add('premium-reveal-out');
+        
+        setTimeout(() => {
+            // 2. Cambiar texto cuando ya no es visible
+            currentIndex = (currentIndex + 1) % strings.length;
+            textElement.textContent = strings[currentIndex];
+            
+            // 3. Iniciar animación de entrada (aparecer desde abajo con enfoque)
+            textElement.classList.remove('premium-reveal-out');
+            textElement.classList.add('premium-reveal-in');
+        }, 600); // 600ms es la duración de premiumOut
+    }, 3500); // Cambiar de frase cada 3.5 segundos
+});
+*/
+
+// --- OPCION 4: Typed Súper Rápido + Borrador Izquierda a Derecha ---
+/*
+document.addEventListener("DOMContentLoaded", function () {
+    const strings = [
+        "convertir visitantes en clientes",
+        "atraer a tu cliente ideal",
+        "posicionamiento que genera ventas",
+        "estrategias de crecimiento digital"
+    ];
+    const textElement = document.getElementById('typed-text');
+    if (!textElement) return;
+
+    textElement.classList.add('custom-typed-cursor');
+
+    let currentIndex = 0;
+    let isTyping = true;
+    let charIndex = 0;
+
+    const typeSpeed = 30; // Súper rápido
+    const deleteSpeed = 20; // Borrado rápido
+    const pauseBeforeDelete = 2000;
+    const pauseBeforeType = 300;
+
+    function typeEffect() {
+        const currentString = strings[currentIndex];
+
+        if (isTyping) {
+            textElement.innerHTML = currentString.substring(0, charIndex);
+            charIndex++;
+
+            if (charIndex > currentString.length) {
+                isTyping = false;
+                charIndex = 0;
+                setTimeout(typeEffect, pauseBeforeDelete);
+            } else {
+                setTimeout(typeEffect, typeSpeed);
+            }
+        } else {
+            const deletedPart = `<span style="opacity: 0;">${currentString.substring(0, charIndex)}</span>`;
+            const visiblePart = currentString.substring(charIndex);
+            textElement.innerHTML = deletedPart + visiblePart;
+            
+            charIndex++;
+
+            if (charIndex > currentString.length) {
+                isTyping = true;
+                currentIndex = (currentIndex + 1) % strings.length;
+                charIndex = 0;
+                textElement.innerHTML = '';
+                setTimeout(typeEffect, pauseBeforeType);
+            } else {
+                setTimeout(typeEffect, deleteSpeed);
+            }
+        }
+    }
+
+    setTimeout(typeEffect, 500);
+});
+*/
+
+// --- OPCION 5: Typed Elegante y Profesional (Nueva linea y color) ---
+document.addEventListener("DOMContentLoaded", function () {
+    const strings = [
+        "convertir visitantes en clientes",
+        "atraer a tu cliente ideal",
+        "posicionamiento que genera ventas",
+        "estrategias de crecimiento digital"
+    ];
+    const textElement = document.getElementById('typed-text');
+    if (!textElement) return;
+
+    textElement.className = 'typed-text elegant-typed';
+    
+    // Crear el cursor animado por separado
+    const cursor = document.createElement('span');
+    cursor.className = 'elegant-cursor';
+    textElement.parentNode.insertBefore(cursor, textElement.nextSibling);
+
+    let currentIndex = 0;
+    let isTyping = true;
+    let charIndex = 0;
+
+    const typeSpeed = 50; // Ritmo elegante
+    const deleteSpeed = 30; // Borrado suave
+    const pauseBeforeDelete = 2500;
+    const pauseBeforeType = 500;
+
+    function typeEffect() {
+        const baseString = strings[currentIndex];
+        const currentString = (typeof currentLang !== 'undefined' && currentLang === 'en' && typeof dictionary !== 'undefined' && dictionary[baseString]) ? dictionary[baseString] : baseString;
+
+        if (isTyping) {
+            textElement.textContent = currentString.substring(0, charIndex);
+            charIndex++;
+
+            if (charIndex > currentString.length) {
+                isTyping = false;
+                setTimeout(typeEffect, pauseBeforeDelete);
+            } else {
+                const randomVariation = Math.random() * 20 - 10;
+                setTimeout(typeEffect, typeSpeed + randomVariation);
+            }
+        } else {
+            textElement.textContent = currentString.substring(0, charIndex);
+            charIndex--;
+
+            if (charIndex < 0) {
+                isTyping = true;
+                currentIndex = (currentIndex + 1) % strings.length;
+                charIndex = 0;
+                setTimeout(typeEffect, pauseBeforeType);
+            } else {
+                setTimeout(typeEffect, deleteSpeed);
+            }
+        }
+    }
+
+    setTimeout(typeEffect, 800);
 });
 
 // Swiper para el carrusel de servicios (efecto coverflow ajustado)
@@ -689,4 +876,12 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'), { passive: true });
         });
     }
+});
+
+// Manejar el cambio de idioma para las frases animadas
+window.addEventListener('languageChanged', (e) => {
+    // Si necesitas reiniciar la animacion, puedes hacerlo aqui.
+    // Como las variables strings estan dentro del scope de DOMContentLoaded, 
+    // lo ideal sería exponerlas globalmente, o simplemente ignorarlo ya que
+    // traducir el texto en tiempo real es complejo para strings dinamicos.
 });

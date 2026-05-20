@@ -82,6 +82,9 @@
                 <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845812/logo_fqrwqj.png"
                     alt="logo de BLAJ" style="width: 50px; height: 50px;">
                 <div class="navbar-actions">
+                    <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguageCustom()" aria-label="Traducir">
+                        <img id="lang-flag" src="https://flagcdn.com/w20/es.png" alt="ES" class="lang-flag"> <span id="lang-text">ES</span>
+                    </button>
                     <label class="ui-switch">
                         <input type="checkbox" id="theme-toggle">
                         <script>
@@ -133,7 +136,7 @@
             <canvas id="hero-canvas"></canvas>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>BLAJ es tu aliado en <span id="typed-text" class="typed-text"></span></h1>
+                <h1>BLAJ es tu aliado en<br><span id="typed-text" class="typed-text"></span></h1>
                 <a href="https://wa.link/khsws3" class="btn-primary-custom" target="_blank">
                     <span class="d-flex align-items-center justify-content-center">
                         <i class="fas fa-rocket me-2"></i> Solicitar cotización
@@ -404,43 +407,89 @@
                 <div class="swiper-container-wrapper mt-5 lazy-load">
                     <div class="swiper testimonialsSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide testimonial-card glassmorphism-card">
-                                <div class="testimonial-avatar">
-                                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845814/t1_cjaqkg.jpg"
-                                        alt="avatar de cliente de macramé" class="lazy-load" loading="lazy">
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <p class="testimonial-text">"Yo solo quería vender mi ebook y no sabía ni por dónde
-                                    empezar. Me armaron una página que prácticamente vende sola, así que yo feliz. Me
-                                    encantó que entendieran mi estilo bohemio y que no se viera como una tienda fría y
-                                    aburrida."</p>
-                                <p class="testimonial-author">- Sandra M., creadora de "Macramé creativo"</p>
-                            </div>
+                                <p class="testimonial-text">"Yo solo quería vender mi ebook y no sabía ni por dónde empezar. Me armaron una página que prácticamente vende sola, así que yo feliz. Me encantó que entendieran mi estilo bohemio y que no se viera como una tienda fría y aburrida."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Sandra M.</p>
+    </div>
+</div>
 
-
-
-                            <div class="swiper-slide testimonial-card glassmorphism-card">
-                                <div class="testimonial-avatar">
-                                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845816/t4_nz4ors.jpg"
-                                        alt="avatar de cliente de krosa" class="lazy-load" loading="lazy">
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <p class="testimonial-text">"Necesitábamos una web que se viera seria para entrar a
-                                    licitaciones grandes. El equipo entendió perfecto el rubro industrial; no nos
-                                    hicieron algo 'bonito' y ya, sino algo que impone autoridad. Nos ha ayudado mucho a
-                                    que nos tomen en serio."</p>
-                                <p class="testimonial-author">- Equipo de "Krosa construcciones"</p>
-                            </div>
+                                <p class="testimonial-text">"Necesitábamos una web que se viera seria para entrar a licitaciones grandes. El equipo entendió perfecto el rubro industrial; no nos hicieron algo 'bonito' y ya, sino algo que impone autoridad. Nos ha ayudado mucho a que nos tomen en serio."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Equipo de "Krosa"</p>
+    </div>
+</div>
 
-                            <div class="swiper-slide testimonial-card glassmorphism-card">
-                                <div class="testimonial-avatar">
-                                    <img src="https://res.cloudinary.com/dpvm2gro2/image/upload/v1768845815/t3_x2vapl.jpg"
-                                        alt="avatar de cliente de sht" class="lazy-load" loading="lazy">
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <p class="testimonial-text">"Teníamos miedo de renovar la marca y que se perdiera
-                                    nuestra historia de 50 años, pero lograron un equilibrio perfecto. Se ve moderno
-                                    pero respetando nuestras raíces. Ahora recibimos cotizaciones mucho más claras desde
-                                    el sitio."</p>
-                                <p class="testimonial-author">- Gerencia de "SHT soluciones"</p>
-                            </div>
+                                <p class="testimonial-text">"Teníamos miedo de renovar la marca y que se perdiera nuestra historia de 50 años, pero lograron un equilibrio perfecto. Se ve moderno pero respetando nuestras raíces. Ahora recibimos cotizaciones mucho más claras desde el sitio."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Gerencia de "SHT"</p>
+    </div>
+</div>
+
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Nuestra tienda en línea era un desastre, lenta y difícil de usar. Nos rehicieron la plataforma completa y la diferencia es abismal. Las ventas subieron casi un 30% en los primeros meses porque ahora los clientes sí pueden comprar sin que se trabe."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Roberto Silva</p>
+    </div>
+</div>
+
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Un servicio muy completo. Nos ayudaron no solo con la web, sino también con la estrategia digital. Al principio nos costó un poco aterrizar las ideas, pero el resultado final valió totalmente la pena. Muy recomendables."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Mariana Rojas</p>
+    </div>
+</div>
+
+                            <div class="swiper-slide" style="display: flex; justify-content: center;">
+    <div class="testimonial-card glassmorphism-card p-3" style="width: 100%; height: 100%; max-width: 320px; margin: 0 auto;">
+                                <div class="star-rating mb-3" style="color: #FFD700; font-size: 0.9rem;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Excelente atención de parte de todo el equipo. Realmente se nota que saben lo que hacen cuando te explican la estrategia detrás del diseño. Nos dejaron una página moderna, rápida y que transmite justo lo que somos como empresa."</p>
+                                <p class="testimonial-author fw-bold mt-3">- Andrés Villarreal</p>
+    </div>
+</div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -816,7 +865,7 @@
                 </div>
                 <div class="modal-body" style="text-align: left;" data-lenis-prevent>
 
-                    <h4 style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700;">Responsable de la
+                    <h4 style="color: var(--current-text-color); font-size: 0.9rem; font-weight: 700;">Responsable de la
                         protección de sus datos personales.</h4>
                     <p>BLAJ, dedicado a los servicios de creación de marca, diseño web, posicionamiento SEO y
                         estrategias de crecimiento digital, mejor conocido como BLAJ, es responsable del tratamiento de
@@ -828,7 +877,7 @@
                         indebida. solo las personas autorizadas dentro de BLAJ tendrán acceso a los datos.</p>
 
                     <h4
-                        style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem;">
+                        style="color: var(--current-text-color); font-size: 0.9rem; font-weight: 700; margin-top: 1.5rem;">
                         Finalidades del tratamiento de sus datos.</h4>
                     <p>Sus datos personales que comparten (LOS DATOS) con BLAJ, serán utilizados para las siguientes
                         finalidades:</p>
@@ -862,7 +911,7 @@
                         neguemos nuestros servicios, precios y cotizaciones.</p>
 
                     <h4
-                        style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem;">
+                        style="color: var(--current-text-color); font-size: 0.9rem; font-weight: 700; margin-top: 1.5rem;">
                         Evocación de consentimiento para el tratamiento de sus datos personales</h4>
                     <p>Le informamos que usted como titular podrá revocar el consentimiento que ha otorgado a BLAJ para
                         el tratamiento de sus datos, deberá enviar un correo electrónico a "blajdigital@gmail.com", con
@@ -875,7 +924,7 @@
                         procedencia de la misma, a través de los datos de contacto que nos haya proporcionado.</p>
 
                     <h4
-                        style="color: var(--current-text-color); font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem;">
+                        style="color: var(--current-text-color); font-size: 0.9rem; font-weight: 700; margin-top: 1.5rem;">
                         Modificaciones del aviso de privacidad</h4>
                     <p>Nos reservamos el derecho de efectuar en cualquier momento modificaciones o actualizaciones al
                         presente aviso de privacidad. estas modificaciones estarán disponibles a las personas en
@@ -918,12 +967,15 @@
         xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://blaj-chatbot.vercel.app/static/blaj/widget.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/index.js"></script>
     <script src="js/particles.js"></script>
     <script src="https://blaj-chatbot.vercel.app/static/js/blaj-forms.js"></script>
 
+
+    
+    
 </body>
 
 </html>
