@@ -115,8 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         height = canvas.height = canvas.parentElement.offsetHeight;
         particles = [];
 
-        // Densidad reducida: antes 6000, ahora 9500 (menos partículas, misma sensación visual)
-        const numberOfParticles = Math.min(Math.floor((width * height) / 9500), 120);
+        // Densidad reducida: antes 9500, ahora 18000 (menos partículas, mejor rendimiento)
+        const numberOfParticles = Math.min(Math.floor((width * height) / 18000), 60);
 
         for (let i = 0; i < numberOfParticles; i++) {
             particles.push(new Particle());

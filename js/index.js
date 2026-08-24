@@ -1,32 +1,38 @@
 // Inicialización de Lenis para scroll suave premium
 const lenis = new Lenis({
-    lerp: 0.1, 
+    lerp: 0.13,           // más alto = scroll responde más ágido, menos "pegajoso"
     smoothWheel: true,
-    wheelMultiplier: 1,
+    wheelMultiplier: 1.2, // cubre más distancia por tick, reduce percepción de lentitud
     smoothTouch: false,
     touchMultiplier: 1.5,
     infinite: false,
 });
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-// Efecto Parallax Profesional y Fluido (Sincronizado con Lenis)
+// Un único loop rAF para todo (Lenis + parallax)
 let heroParallax = null;
+let currentScrollY = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     heroParallax = document.querySelector('.hero-content');
 });
 
 lenis.on('scroll', (e) => {
-    const scroll = e.animatedScroll;
-    if (heroParallax && scroll <= window.innerHeight) {
-        // Usamos transformaciones 3D para la GPU y solo si es visible el hero
-        heroParallax.style.transform = `translate3d(0, ${scroll * 0.35}px, 0)`;
-    }
+    currentScrollY = e.animatedScroll;
 });
+
+function raf(time) {
+    lenis.raf(time);
+    // Parallax ejecutado en el mismo loop que Lenis, sin loop extra
+    // DESACTIVADO: el parallax hace que el contenido se mueva más lento que el scroll,
+    // lo que el cerebro interpreta como "lag". Sin él, el scroll se percibe instantáneo.
+    // if (heroParallax && currentScrollY <= window.innerHeight) {
+    //     heroParallax.style.transform = `translate3d(0, ${currentScrollY * 0.3}px, 0)`;
+    // } else if (heroParallax) {
+    //     heroParallax.style.transform = '';
+    // }
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
 
 // Limpieza inicial de URL (quitar index.html y hashes)
 document.addEventListener('DOMContentLoaded', () => {
@@ -127,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Intervalo suave para la actualización
-        const progressInterval = setInterval(updateProgress, 40);
+        const progressInterval = setInterval(updateProgress, 60);
 
         // Detectar carga real de la página
         window.addEventListener('load', () => {

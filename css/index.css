@@ -194,6 +194,12 @@ body {
     min-height: 100vh;
 }
 
+#page-wrapper {
+    /* Promover al compositor de GPU para evitar repaints del body completo */
+    transform: translateZ(0);
+    isolation: isolate;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -418,17 +424,15 @@ body:hover .cursor-follower {
     /* margen para efecto flotante */
     background: rgba(0, 0, 0, 0.3);
     /* color de fondo fijo */
-    backdrop-filter: blur(12px);
-    /* mÃ¡s blur */
-    -webkit-backdrop-filter: blur(12px);
-    /* mÃ¡s blur */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transform: translateZ(0);
     border: 1px solid rgba(255, 255, 255, 0.5);
     /* borde blanco semitransparente */
     border-radius: 50px;
     /* bordes redondeados */
     box-shadow: 0 4px 10px var(--current-shadow-color);
-    transition: all 0.3s ease;
-    /* transiciÃ³n para todos los cambios */
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     margin: 15px auto;
 }
 
@@ -1042,15 +1046,14 @@ body.dark-mode .btn-primary-custom:hover {
 }
 
 /* Tarjetas Glassmorphism */
+/* NOTA: backdrop-filter eliminado de la clase base por rendimiento.
+   Se aplica SOLO donde es realmente necesario (modales visibles). */
 .glassmorphism-card {
     background: var(--current-card-bg);
-    backdrop-filter: blur(15px);
-    /* mÃ¡s blur */
-    -webkit-backdrop-filter: blur(15px);
-    /* mÃ¡s blur */
+    transform: translateZ(0);
     border: 1px solid var(--current-border-color);
     border-radius: 15px;
-    box-shadow: 0 8px 32px 0 var(--current-shadow-color);
+    box-shadow: 0 8px 15px 0 var(--current-shadow-color);
     padding: 30px;
     margin-bottom: 30px;
     /* para separar las tarjetas */
@@ -1102,7 +1105,7 @@ body.dark-mode .btn-primary-custom:hover {
     justify-content: space-between;
     align-items: flex-start;
     text-align: left;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     position: relative;
     box-shadow: none;
 }
@@ -1576,15 +1579,12 @@ body.dark-mode .btn-primary-custom:hover {
 /* -- SecciÃ³n: Contacto (Contact Form) -- */
 .contact-form .form-control {
     background: var(--current-card-bg);
-    backdrop-filter: blur(10px);
-    /* mÃ¡s blur */
-    -webkit-backdrop-filter: blur(10px);
-    /* mÃ¡s blur */
+    transform: translateZ(0);
     border: 1px solid var(--current-border-color);
     color: var(--current-text-color);
     padding: 10px 15px;
     border-radius: 8px;
-    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-form .form-control:hover {
@@ -1808,12 +1808,10 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
     justify-content: center;
     align-items: center;
     background: var(--current-card-bg);
-    /* fondo de glassmorphism para los slides */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    transform: translateZ(0);
     border: 1px solid var(--current-border-color);
     border-radius: 15px;
-    box-shadow: 0 5px 20px 0 var(--current-shadow-color);
+    box-shadow: 0 5px 15px 0 var(--current-shadow-color);
     overflow: hidden;
     flex-direction: column;
     text-align: center;
@@ -2105,17 +2103,15 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .modal-backdrop.fade.show {
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* Sin backdrop-filter para evitar freeze de GPU al abrir modal */
+    background-color: rgba(0, 0, 0, 0.65);
 }
 
 #page-wrapper {
-    transition: filter 0.3s ease-in-out;
+    /* Sin transition de filter para evitar repaint costoso */
 }
 
 #page-wrapper.blurred {
-    filter: blur(10px);
     pointer-events: none;
 }
 
@@ -2387,9 +2383,7 @@ body:not(.dark-mode) .contact-form .btn-primary-custom {
 }
 
 .chat-message.bot {
-    background: var(--current-card-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: var(--current-mobile-menu-bg);
     border: 1px solid var(--current-border-color);
     color: var(--current-text-color);
     align-self: flex-start;
@@ -2480,13 +2474,15 @@ body.modal-open .chatbox-icon {
 /* ======================================== */
 .lazy-load {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .lazy-load.visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto; /* liberar memoria GPU una vez animado */
 }
 
 /* ======================================== */
@@ -2731,12 +2727,12 @@ iframe {
 /* ======================================== */
 .premium-validation-modal .modal-content {
     background: var(--current-card-bg);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(0);
     border: 1px solid var(--current-border-color);
     border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .premium-validation-modal .error-icon-container {
@@ -2819,11 +2815,12 @@ iframe {
 /* ======================================== */
 .modal-content.glassmorphism-card {
     background: var(--current-card-bg) !important;
-    backdrop-filter: blur(25px) saturate(120%);
-    -webkit-backdrop-filter: blur(25px) saturate(120%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(0);
     border: 1px solid var(--current-border-color);
     border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     color: var(--current-text-color);
     overflow: hidden;
     padding: 0;
