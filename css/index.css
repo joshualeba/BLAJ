@@ -195,8 +195,7 @@ body {
 }
 
 #page-wrapper {
-    /* Promover al compositor de GPU para evitar repaints del body completo */
-    transform: translateZ(0);
+    /* transform: translateZ(0) eliminado — rompe position:fixed en hijos (navbar) */
     isolation: isolate;
 }
 
