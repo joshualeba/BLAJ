@@ -22,14 +22,6 @@ lenis.on('scroll', (e) => {
 
 function raf(time) {
     lenis.raf(time);
-    // Parallax ejecutado en el mismo loop que Lenis, sin loop extra
-    // DESACTIVADO: el parallax hace que el contenido se mueva más lento que el scroll,
-    // lo que el cerebro interpreta como "lag". Sin él, el scroll se percibe instantáneo.
-    // if (heroParallax && currentScrollY <= window.innerHeight) {
-    //     heroParallax.style.transform = `translate3d(0, ${currentScrollY * 0.3}px, 0)`;
-    // } else if (heroParallax) {
-    //     heroParallax.style.transform = '';
-    // }
     requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
@@ -495,29 +487,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Efecto lazy load para elementos y títulos de sección
-document.addEventListener("DOMContentLoaded", () => {
-    const lazyElements = document.querySelectorAll(".lazy-load");
-
-    if (lazyElements.length === 0) return;
-
-    const observerOptions = {
-        root: null,
-        rootMargin: "0px 0px 100px 0px", // Trigger 100px before to avoid pop-in feel
-        threshold: 0.1 
-    };
-
-    const lazyObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target); // Dejar de observar para mantener visible
-            }
-        });
-    }, observerOptions);
-
-    lazyElements.forEach(el => lazyObserver.observe(el));
-});
+// Efecto lazy load desactivado para evitar sensación de lag
+// document.addEventListener("DOMContentLoaded", () => {
+//     const lazyElements = document.querySelectorAll(".lazy-load");
+//     if (lazyElements.length === 0) return;
+//     const observerOptions = { root: null, rootMargin: "0px 0px 100px 0px", threshold: 0.1 };
+//     const lazyObserver = new IntersectionObserver((entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add("visible");
+//                 observer.unobserve(entry.target);
+//             }
+//         });
+//     }, observerOptions);
+//     lazyElements.forEach(el => lazyObserver.observe(el));
+// });
 
 // Validación del formulario de contacto y modal de éxito
 document.addEventListener("DOMContentLoaded", function () {
@@ -890,4 +874,85 @@ window.addEventListener('languageChanged', (e) => {
     // Como las variables strings estan dentro del scope de DOMContentLoaded, 
     // lo ideal sería exponerlas globalmente, o simplemente ignorarlo ya que
     // traducir el texto en tiempo real es complejo para strings dinamicos.
+});
+
+// --- Efectos de Título Dinámico ---
+document.addEventListener("DOMContentLoaded", () => {
+    const fullTitle = "BLAJ | Agencia de Crecimiento Digital en México";
+    const typeUntil = "BLAJ | Agencia de Crecimiento Digital";
+    
+    // Frases para alternar cuando el usuario se va
+    const awayTitles = [
+        "👀 ¿Listo/a para destacar? | BLAJ",
+        "⚡ Hagamos crecer tu marca | BLAJ"
+    ];
+    let awayInterval = null;
+    let awayIndex = 0;
+    
+    let titleInterval = null;
+    let titleTimeout = null;
+    let charIndex = 0;
+    let marqueeTitle = fullTitle + "   •   "; 
+    
+    function stopEffects() {
+        if (titleInterval) clearInterval(titleInterval);
+        if (titleTimeout) clearTimeout(titleTimeout);
+        if (awayInterval) clearInterval(awayInterval);
+    }
+
+    // 1. Fase: Máquina de escribir
+    function startTypewriter() {
+        stopEffects();
+        charIndex = 0;
+        
+        titleInterval = setInterval(() => {
+            document.title = typeUntil.substring(0, charIndex) + " |";
+            charIndex++;
+            
+            // Cuando termine de escribir hasta la palabra "Digital"
+            if (charIndex > typeUntil.length) {
+                clearInterval(titleInterval);
+                document.title = typeUntil; // Quitar el cursor al terminar
+                
+                // Iniciar la marquesina inmediatamente sin esperar
+                startMarquee();
+            }
+        }, 120); // Velocidad de escritura
+    }
+
+    // 2. Fase: Marquesina
+    function startMarquee() {
+        stopEffects();
+        marqueeTitle = fullTitle + "   •   "; 
+        
+        titleInterval = setInterval(() => {
+            marqueeTitle = marqueeTitle.substring(1) + marqueeTitle.charAt(0);
+            document.title = marqueeTitle;
+        }, 300); // Velocidad de desplazamiento
+    }
+    
+    // 3. Fase: Título ausente (Away)
+    function startAwayEffect() {
+        stopEffects();
+        document.title = awayTitles[0]; // Mostrar el primero inmediatamente
+        awayIndex = 1;
+        
+        awayInterval = setInterval(() => {
+            document.title = awayTitles[awayIndex];
+            awayIndex = (awayIndex + 1) % awayTitles.length;
+        }, 2500); // Cambia de frase cada 2.5 segundos
+    }
+
+    // Iniciar el efecto completo por defecto
+    startTypewriter();
+
+    // Cambiar título cuando el usuario cambia de pestaña
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            startAwayEffect();
+        } else {
+            // Reiniciar todo el ciclo (Máquina de escribir -> Marquesina) al regresar a la pestaña
+            startTypewriter();
+        }
+    });
 });

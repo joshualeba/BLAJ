@@ -2472,16 +2472,14 @@ body.modal-open .chatbox-icon {
 /* 13. LAZY LOAD (EFECTO DE APARICIÃ“N) */
 /* ======================================== */
 .lazy-load {
-    opacity: 0;
-    transform: translateY(30px);
-    will-change: transform, opacity;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* Efecto desactivado para evitar la sensación de página trabada */
+    opacity: 1;
+    transform: none;
 }
 
 .lazy-load.visible {
     opacity: 1;
-    transform: translateY(0);
-    will-change: auto; /* liberar memoria GPU una vez animado */
+    transform: none;
 }
 
 /* ======================================== */
